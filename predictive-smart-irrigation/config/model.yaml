@@ -1,0 +1,14 @@
+# ML model configuration
+model:
+  type: "lightgbm"  # or "random_forest" as fallback
+  quantiles: [0.1, 0.5, 0.9]  # P10, P50, P90
+  n_estimators: 100
+  max_depth: 7
+  learning_rate: 0.1
+  feature_lags: [1, 2, 3, 7]  # days
+  rolling_windows: [3, 7, 14]  # days
+
+training:
+  test_size: 0.2
+  random_state: 42
+
