@@ -105,6 +105,11 @@ def main():
             weather_path = data_dir / 'weather_history.csv'
             if weather_path.exists():
                 existing = pd.read_csv(weather_path, parse_dates=['datetime'])
+                # Ensure 'date' column is consistent type (datetime.date)
+                if 'date' in existing.columns:
+                    existing['date'] = pd.to_datetime(existing['date']).dt.date
+                if 'date' in weather_df.columns:
+                    weather_df['date'] = pd.to_datetime(weather_df['date']).dt.date
                 weather_df = pd.concat([existing, weather_df]).drop_duplicates(subset=['date']).sort_values('date')
             weather_df.to_csv(weather_path, index=False)
             st.success("Generated synthetic week data")
