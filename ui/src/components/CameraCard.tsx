@@ -1,4 +1,5 @@
 import type { Camera } from '../types/camera';
+import { calculateStatus } from '../utils/statusCalculator';
 
 interface CameraCardProps {
   camera: Camera;
@@ -8,6 +9,10 @@ export function CameraCard({ camera }: CameraCardProps) {
   const [x, y] = camera.Position;
   const waterPercent = (camera.Water * 100).toFixed(1);
   const lightValue = Math.round(camera.Light * 255);
+  
+  // Calculate status dynamically based on Water and Light values
+  const statusInfo = calculateStatus(camera.Water, camera.Light);
+  const statusClass = statusInfo.status.toLowerCase();
 
   return (
     <div className="camera-card">
@@ -31,8 +36,8 @@ export function CameraCard({ camera }: CameraCardProps) {
         </div>
         <div className="info-row">
           <span className="label">Status:</span>
-          <span className={`value status status-${camera.Status.toLowerCase()}`}>
-            {camera.Status}
+          <span className={`value status status-${statusClass}`}>
+            {statusInfo.status}
           </span>
         </div>
       </div>

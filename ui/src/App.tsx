@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { CameraCard } from './components/CameraCard';
 import { MapView } from './components/MapView';
+import CameraStreamModal from './components/CameraStreamModal';
 import { fetchCameraData } from './services/api';
 import type { Camera } from './types/camera';
 import './App.css';
@@ -10,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [selectedCameraId, setSelectedCameraId] = useState<number | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -59,8 +61,36 @@ function App() {
         </div>
       )}
 
+      {/* Camera Control Buttons */}
+      <div className="camera-buttons">
+        <button 
+          className="camera-button camera-0"
+          onClick={() => setSelectedCameraId(0)}
+          disabled={loading || cameras.length === 0}
+        >
+          Camera 0
+        </button>
+        <button 
+          className="camera-button camera-1"
+          onClick={() => setSelectedCameraId(1)}
+          disabled={loading || cameras.length === 0}
+        >
+          Camera 1
+        </button>
+        <button 
+          className="camera-button camera-2"
+          onClick={() => setSelectedCameraId(2)}
+          disabled={loading || cameras.length === 0}
+        >
+          Camera 2
+        </button>
+      </div>
+
       {cameras.length > 0 && (
-        <MapView cameras={cameras} />
+        <MapView 
+          cameras={cameras} 
+          onCameraClick={(segmentId) => setSelectedCameraId(segmentId)}
+        />
       )}
 
       <div className="camera-list">
@@ -68,6 +98,15 @@ function App() {
           <CameraCard key={camera.SegmentID} camera={camera} />
         ))}
       </div>
+
+      {/* Camera Stream Modal */}
+      {selectedCameraId !== null && (
+        <CameraStreamModal
+          robotId={selectedCameraId}
+          cameras={cameras}
+          onClose={() => setSelectedCameraId(null)}
+        />
+      )}
     </div>
   );
 }

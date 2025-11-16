@@ -4,6 +4,7 @@ import './MapView.css';
 
 interface MapViewProps {
   cameras: Camera[];
+  onCameraClick?: (segmentId: number) => void;
 }
 
 // Calibration values from Python/Tkinter implementation
@@ -34,7 +35,7 @@ function coordToPixel(x: number, y: number, mapWidth: number, mapHeight: number)
   return { x: pixelX, y: pixelY };
 }
 
-export function MapView({ cameras }: MapViewProps) {
+export function MapView({ cameras, onCameraClick }: MapViewProps) {
   const [mapDimensions, setMapDimensions] = useState({ width: 700, height: 700 });
   const [displaySize, setDisplaySize] = useState({ width: 700, height: 700 });
   const mapWrapperRef = useRef<HTMLDivElement>(null);
@@ -104,6 +105,8 @@ export function MapView({ cameras }: MapViewProps) {
                   fill={color}
                   opacity="0.3"
                   className="camera-pulse-outer"
+                  onClick={() => onCameraClick?.(camera.SegmentID)}
+                  style={{ cursor: onCameraClick ? 'pointer' : 'default' }}
                 />
                 {/* Main camera dot */}
                 <circle
@@ -112,7 +115,11 @@ export function MapView({ cameras }: MapViewProps) {
                   r="8"
                   fill={color}
                   className="camera-dot"
-                  style={{ '--camera-color': color } as React.CSSProperties}
+                  style={{ 
+                    '--camera-color': color,
+                    cursor: onCameraClick ? 'pointer' : 'default'
+                  } as React.CSSProperties}
+                  onClick={() => onCameraClick?.(camera.SegmentID)}
                 />
                 {/* Label */}
                 <text
