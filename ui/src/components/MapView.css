@@ -1,0 +1,108 @@
+.map-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+}
+
+.map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.camera-dot {
+  animation: camera-flash 1s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+.camera-pulse-outer {
+  animation: camera-pulse 1s ease-in-out infinite;
+}
+
+.camera-label {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  animation: label-pulse 1s ease-in-out infinite;
+}
+
+@keyframes camera-flash {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes camera-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes label-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Stagger animations for different cameras */
+.camera-dot:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.camera-dot:nth-of-type(2) {
+  animation-delay: 0.33s;
+}
+
+.camera-dot:nth-of-type(3) {
+  animation-delay: 0.66s;
+}
+
+.camera-pulse-outer:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.camera-pulse-outer:nth-of-type(2) {
+  animation-delay: 0.33s;
+}
+
+.camera-pulse-outer:nth-of-type(3) {
+  animation-delay: 0.66s;
+}
+

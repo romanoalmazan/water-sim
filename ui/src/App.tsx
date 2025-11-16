@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CameraCard } from './components/CameraCard';
+import { MapView } from './components/MapView';
 import { fetchCameraData } from './services/api';
 import type { Camera } from './types/camera';
 import './App.css';
@@ -56,6 +57,10 @@ function App() {
         <div className="error">
           Error: {error}
         </div>
+      )}
+
+      {cameras.length > 0 && (
+        <MapView cameras={cameras} />
       )}
 
       <div className="camera-list">
