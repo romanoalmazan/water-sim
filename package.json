@@ -1,0 +1,27 @@
+{
+  "name": "sewer-camera-frontend",
+  "version": "1.0.0",
+  "description": "Frontend dashboard for the Sewer Camera System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "sewer",
+    "camera",
+    "dashboard",
+    "real-time",
+    "monitoring"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

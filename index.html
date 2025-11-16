@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sewer Camera System - Real-time Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🚰 Sewer Camera System</h1>
+        <div class="status-indicator">
+            <span id="connection-status" class="status-dot offline"></span>
+            <span>Backend Connection</span>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="info-panel">
+            <h2>System Overview</h2>
+            <p>Real-time monitoring of sewer camera positions, water levels, and lighting conditions.</p>
+            <div class="system-stats">
+                <div class="stat">
+                    <span class="stat-value" id="active-cameras">0</span>
+                    <span class="stat-label">Active Cameras</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="last-update">--:--:--</span>
+                    <span class="stat-label">Last Update</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="camera-grid" id="camera-grid">
+            <!-- Camera cards will be dynamically generated here -->
+        </div>
+
+        <div class="map-container">
+            <h2>Camera Positions Map</h2>
+            <div class="sewer-map" id="sewer-map">
+                <canvas id="map-canvas" width="600" height="400"></canvas>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-color camera-ok"></span>
+                        <span>OK Status</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color camera-lowlight"></span>
+                        <span>Low Light</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color camera-warning"></span>
+                        <span>Warning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Sewer Camera System Dashboard | Data updates every second from EC-2025 backend</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
