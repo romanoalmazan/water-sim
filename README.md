@@ -1,4 +1,5 @@
 # water-sim
+<<<<<<< HEAD
 test test
 
                  .   .   .   .   .   .   .
@@ -19,3 +20,5 @@ test test
                 ooooooooooooooooooo
                     ooooooooooo
                         oooo
+=======
+>>>>>>> nick_dev
