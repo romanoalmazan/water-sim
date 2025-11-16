@@ -127,21 +127,6 @@ export const PipeSegment = ({ segment, waveOffset }: PipeSegmentProps) => {
         />
       </svg>
       
-      {/* Segment info overlay */}
-      <div style={{
-        position: 'absolute',
-        bottom: 10,
-        left: '50%',
-        transform: 'translateX(-50%)',
-        fontSize: '14px',
-        color: '#fff',
-        textShadow: '2px 2px 4px rgba(0,0,0,0.9)',
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        padding: '5px 10px',
-        borderRadius: '4px'
-      }}>
-        Camera {segment.SegmentID} | Water: {(segment.Water * 100).toFixed(0)}% | Light: {segment.Light.toFixed(2)}
-      </div>
     </div>
   )
 }
