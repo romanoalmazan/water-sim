@@ -1,0 +1,611 @@
+{
+  "metadata": {
+    "totalEntries": 100,
+    "collectionStartTime": "2025-11-16T20:44:17.618Z",
+    "collectionEndTime": "2025-11-16T20:45:55.517Z",
+    "durationSeconds": 98,
+    "source": "http://localhost:3000/api/json"
+  },
+  "entries": [
+    {
+      "entry": 1,
+      "timestamp": "2025-11-16T20:44:17.630Z",
+      "elapsedSeconds": 0,
+      "cameras": "[{\"Position\":[0,0.2942333333194256],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.006849226984949,\"Status\":\"OK\"},{\"Position\":[1.182409389787587,1],\"SegmentID\":1,\"Water\":0.75,\"Light\":0.9658930385723925,\"Status\":\"LOWLIGHT\"},{\"Position\":[1.9261424417998798,1.9507616278665865],\"SegmentID\":2,\"Water\":0.75,\"Light\":0.11202164987197993,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 2,
+      "timestamp": "2025-11-16T20:44:18.665Z",
+      "elapsedSeconds": 1,
+      "cameras": "[{\"Position\":[0,0.31113333255052567],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0007984279541524,\"Status\":\"OK\"},{\"Position\":[1.1655093905564868,1],\"SegmentID\":1,\"Water\":0.75,\"Light\":0.9848012903974329,\"Status\":\"LOWLIGHT\"},{\"Position\":[1.9402040911344258,1.9601360607562839],\"SegmentID\":2,\"Water\":0.75,\"Light\":0.10886010779051572,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 3,
+      "timestamp": "2025-11-16T20:44:19.675Z",
+      "elapsedSeconds": 2,
+      "cameras": "[{\"Position\":[0,0.32796666771173477],\"SegmentID\":0,\"Water\":0.5,\"Light\":0.9950327630007032,\"Status\":\"OK\"},{\"Position\":[1.1486760553952777,1],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.002476391969051,\"Status\":\"LOWLIGHT\"},{\"Position\":[1.9542102726099975,1.9694735150733318],\"SegmentID\":2,\"Water\":0.75,\"Light\":0.10630448485725301,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 4,
+      "timestamp": "2025-11-16T20:44:20.682Z",
+      "elapsedSeconds": 3,
+      "cameras": "[{\"Position\":[0,0.3447499983012676],\"SegmentID\":0,\"Water\":0,\"Light\":0.9896330291666564,\"Status\":\"OK\"},{\"Position\":[1.1318927248057449,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0188920572021603,\"Status\":\"LOWLIGHT\"},{\"Position\":[1.9681748477669876,1.9787832318446585],\"SegmentID\":2,\"Water\":0.75,\"Light\":0.1043441419613988,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 5,
+      "timestamp": "2025-11-16T20:44:21.689Z",
+      "elapsedSeconds": 4,
+      "cameras": "[{\"Position\":[0,0.3615333326160908],\"SegmentID\":0,\"Water\":0,\"Light\":0.9846649341445887,\"Status\":\"OK\"},{\"Position\":[1.1151093904909217,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0340542896093088,\"Status\":\"LOWLIGHT\"},{\"Position\":[1.9821394260236067,1.9880929506824045],\"SegmentID\":2,\"Water\":0.5,\"Light\":0.10296788214558207,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 6,
+      "timestamp": "2025-11-16T20:44:22.695Z",
+      "elapsedSeconds": 5,
+      "cameras": "[{\"Position\":[0,0.3782999999821186],\"SegmentID\":0,\"Water\":0,\"Light\":0.9802095626883367,\"Status\":\"OK\"},{\"Position\":[1.098342723124894,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.047909523260648,\"Status\":\"LOWLIGHT\"},{\"Position\":[1.996090136540575,1.9973934243603833],\"SegmentID\":2,\"Water\":0.5,\"Light\":0.1021726822028185,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 7,
+      "timestamp": "2025-11-16T20:44:23.702Z",
+      "elapsedSeconds": 6,
+      "cameras": "[{\"Position\":[0,0.39508333057165146],\"SegmentID\":0,\"Water\":0,\"Light\":0.9763278241037425,\"Status\":\"OK\"},{\"Position\":[1.081559392535361,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0604531585210608,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.012084259528526,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.10209690191543011,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 8,
+      "timestamp": "2025-11-16T20:44:24.708Z",
+      "elapsedSeconds": 7,
+      "cameras": "[{\"Position\":[0,0.4119333364069462],\"SegmentID\":0,\"Water\":0,\"Light\":0.9730748964983373,\"Status\":\"OK\"},{\"Position\":[1.0647093867000663,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.071689045599011,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.0289342653638207,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.10290358747366901,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 9,
+      "timestamp": "2025-11-16T20:44:25.721Z",
+      "elapsedSeconds": 8,
+      "cameras": "[{\"Position\":[0,0.4287499971687794],\"SegmentID\":0,\"Water\":0,\"Light\":0.9705259156890528,\"Status\":\"OK\"},{\"Position\":[1.0478927259382331,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.081531911021535,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.045750926125654,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.10457453711036642,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 10,
+      "timestamp": "2025-11-16T20:44:26.728Z",
+      "elapsedSeconds": 9,
+      "cameras": "[{\"Position\":[0,0.44555000215768814],\"SegmentID\":0,\"Water\":0,\"Light\":0.9687199855830226,\"Status\":\"OK\"},{\"Position\":[1.0310927209493244,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0899924451713405,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.0625509311145627,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.10710817610891574,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 11,
+      "timestamp": "2025-11-16T20:44:27.736Z",
+      "elapsedSeconds": 10,
+      "cameras": "[{\"Position\":[0,0.462333332747221],\"SegmentID\":0,\"Water\":0,\"Light\":0.9676900098740724,\"Status\":\"OK\"},{\"Position\":[1.0143093903597915,1],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0970790208619314,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.0793342617040955,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.1105033186244399,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 12,
+      "timestamp": "2025-11-16T20:44:28.742Z",
+      "elapsedSeconds": 11,
+      "cameras": "[{\"Position\":[0,0.4790833331644535],\"SegmentID\":0,\"Water\":0,\"Light\":0.9674586921958279,\"Status\":\"OK\"},{\"Position\":[1,1.002440610057441],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.102731889258066,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.096084262121328,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.11475477650827143,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 13,
+      "timestamp": "2025-11-16T20:44:29.753Z",
+      "elapsedSeconds": 12,
+      "cameras": "[{\"Position\":[0,0.49593333527445793],\"SegmentID\":0,\"Water\":0,\"Light\":0.9680441565209892,\"Status\":\"OK\"},{\"Position\":[1,1.0192906121674454],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.106655446372077,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.1129342642313325,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.11990414170657239,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 14,
+      "timestamp": "2025-11-16T20:44:30.762Z",
+      "elapsedSeconds": 13,
+      "cameras": "[{\"Position\":[0,0.5127500034868717],\"SegmentID\":0,\"Water\":0,\"Light\":0.9694514951839367,\"Status\":\"OK\"},{\"Position\":[1,1.0361072803798592],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.1092669483613793,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.1297509324437462,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.12591880373547906,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 15,
+      "timestamp": "2025-11-16T20:44:31.133Z",
+      "elapsedSeconds": 14,
+      "cameras": "[{\"Position\":[0,0.5189333334565163],\"SegmentID\":0,\"Water\":0,\"Light\":0.9701749268172434,\"Status\":\"OK\"},{\"Position\":[1,1.0422906103495038],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.1099071399712443,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.135934262413391,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.1283508754353309,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 16,
+      "timestamp": "2025-11-16T20:44:32.139Z",
+      "elapsedSeconds": 15,
+      "cameras": "[{\"Position\":[0,0.5357166640460491],\"SegmentID\":0,\"Water\":0,\"Light\":0.9726899646207179,\"Status\":\"OK\"},{\"Position\":[1,1.0590739409390366],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.1108020805719554,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.1527175930029236,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.1355516346246205,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 17,
+      "timestamp": "2025-11-16T20:44:33.146Z",
+      "elapsedSeconds": 16,
+      "cameras": "[{\"Position\":[0,0.5525000020861626],\"SegmentID\":0,\"Water\":0,\"Light\":0.9759942070075249,\"Status\":\"OK\"},{\"Position\":[1,1.07585727897915],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.1105071996287212,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.169500931043037,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.14363080501961342,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 18,
+      "timestamp": "2025-11-16T20:44:34.155Z",
+      "elapsedSeconds": 17,
+      "cameras": "[{\"Position\":[0,0.5693500004708767],\"SegmentID\":0,\"Water\":0,\"Light\":0.9800755800369042,\"Status\":\"OK\"},{\"Position\":[1,1.0927072773638642],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.109074733279569,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.186350929427751,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.15262833659799774,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 19,
+      "timestamp": "2025-11-16T20:44:35.165Z",
+      "elapsedSeconds": 18,
+      "cameras": "[{\"Position\":[0,0.5861333347856998],\"SegmentID\":0,\"Water\":0,\"Light\":0.9848621548355282,\"Status\":\"OK\"},{\"Position\":[1,1.1094906116786873],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.1065842513496917,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.2031342637425744,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.1624749925919724,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 20,
+      "timestamp": "2025-11-16T20:44:36.173Z",
+      "elapsedSeconds": 19,
+      "cameras": "[{\"Position\":[0,0.6029666662216187],\"SegmentID\":0,\"Water\":0,\"Light\":0.9903368445288959,\"Status\":\"OK\"},{\"Position\":[1,1.1263239431146062],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.1030959239336904,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.219967595178493,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.17323890968511285,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 21,
+      "timestamp": "2025-11-16T20:44:37.181Z",
+      "elapsedSeconds": 20,
+      "cameras": "[{\"Position\":[0,0.6197333335876465],\"SegmentID\":0,\"Water\":0,\"Light\":0.9964027453341843,\"Status\":\"OK\"},{\"Position\":[1,1.143090610480634],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0987175534839038,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.236734262544521,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.1848439269514156,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 22,
+      "timestamp": "2025-11-16T20:44:38.191Z",
+      "elapsedSeconds": 21,
+      "cameras": "[{\"Position\":[0,0.6365666650235653],\"SegmentID\":0,\"Water\":0,\"Light\":1.0030413848221236,\"Status\":\"OK\"},{\"Position\":[1,1.1599239419165528],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0935029140197776,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.25356759398044,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.19738050804418442,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 23,
+      "timestamp": "2025-11-16T20:44:39.198Z",
+      "elapsedSeconds": 22,
+      "cameras": "[{\"Position\":[0,0.6533499993383884],\"SegmentID\":0,\"Water\":0,\"Light\":1.010133308330498,\"Status\":\"OK\"},{\"Position\":[1,1.176707276231376],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0875804231115223,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.270350928295263,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.21075938186069268,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 24,
+      "timestamp": "2025-11-16T20:44:40.206Z",
+      "elapsedSeconds": 23,
+      "cameras": "[{\"Position\":[0,0.6701500006020069],\"SegmentID\":0,\"Water\":0,\"Light\":1.0176239031334553,\"Status\":\"OK\"},{\"Position\":[1,1.1935072774949944],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0810266246905949,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.2871509295588814,2],\"SegmentID\":2,\"Water\":0.375,\"Light\":0.2250251493106903,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 25,
+      "timestamp": "2025-11-16T20:44:41.215Z",
+      "elapsedSeconds": 24,
+      "cameras": "[{\"Position\":[0,0.686983335763216],\"SegmentID\":0,\"Water\":0,\"Light\":1.0254343937707455,\"Status\":\"OK\"},{\"Position\":[1,1.2103406126562035],\"SegmentID\":1,\"Water\":0,\"Light\":1.0739339468939482,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.3039842647200905,2],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.24018737252283592,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 26,
+      "timestamp": "2025-11-16T20:44:42.224Z",
+      "elapsedSeconds": 25,
+      "cameras": "[{\"Position\":[0,0.7038833349943161],\"SegmentID\":0,\"Water\":0,\"Light\":1.033488695757527,\"Status\":\"OK\"},{\"Position\":[1,1.2272406118873036],\"SegmentID\":1,\"Water\":0,\"Light\":1.0663888661588237,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.3208842639511906,2],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.2562723446719111,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 27,
+      "timestamp": "2025-11-16T20:44:43.242Z",
+      "elapsedSeconds": 26,
+      "cameras": "[{\"Position\":[0,0.7207499966025352],\"SegmentID\":0,\"Water\":0,\"Light\":1.041640887976697,\"Status\":\"OK\"},{\"Position\":[1,1.2441072734955227],\"SegmentID\":1,\"Water\":0,\"Light\":1.05854157740668,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.3377509255594098,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.27317273305532735,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 28,
+      "timestamp": "2025-11-16T20:44:44.253Z",
+      "elapsedSeconds": 27,
+      "cameras": "[{\"Position\":[0,0.73760000243783],\"SegmentID\":0,\"Water\":0,\"Light\":1.0497962279166921,\"Status\":\"OK\"},{\"Position\":[1,1.2609572793308175],\"SegmentID\":1,\"Water\":0,\"Light\":1.050492841001992,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.3546009313947045,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.290883292099949,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 29,
+      "timestamp": "2025-11-16T20:44:45.263Z",
+      "elapsedSeconds": 28,
+      "cameras": "[{\"Position\":[0,0.7544500008225441],\"SegmentID\":0,\"Water\":0,\"Light\":1.0578579869506541,\"Status\":\"OK\"},{\"Position\":[1,1.2778072777155316],\"SegmentID\":1,\"Water\":0,\"Light\":1.0423414788559624,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.3714509297794186,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.30939832248200017,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 30,
+      "timestamp": "2025-11-16T20:44:46.276Z",
+      "elapsedSeconds": 29,
+      "cameras": "[{\"Position\":[0,0.7713166661560535],\"SegmentID\":0,\"Water\":0,\"Light\":1.0657274718613192,\"Status\":\"OK\"},{\"Position\":[1,1.294673943049041],\"SegmentID\":1,\"Water\":0,\"Light\":1.0341843750898578,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.388317595112928,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.3287112693504783,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 31,
+      "timestamp": "2025-11-16T20:44:47.284Z",
+      "elapsedSeconds": 30,
+      "cameras": "[{\"Position\":[0,0.788116667419672],\"SegmentID\":0,\"Water\":0,\"Light\":1.073260267743837,\"Status\":\"OK\"},{\"Position\":[1,1.3114739443126595],\"SegmentID\":1,\"Water\":0,\"Light\":1.0261637310730733,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.4051175963765465,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.34869308257361536,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 32,
+      "timestamp": "2025-11-16T20:44:48.303Z",
+      "elapsedSeconds": 31,
+      "cameras": "[{\"Position\":[0,0.8051000013947487],\"SegmentID\":0,\"Water\":0,\"Light\":1.0804574861333698,\"Status\":\"OK\"},{\"Position\":[1,1.3284572782877362],\"SegmentID\":1,\"Water\":0,\"Light\":1.0182613599990697,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.422100930351623,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.3696136531140722,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 33,
+      "timestamp": "2025-11-16T20:44:49.319Z",
+      "elapsedSeconds": 32,
+      "cameras": "[{\"Position\":[0,0.8220333345234394],\"SegmentID\":0,\"Water\":0,\"Light\":1.0871087727887738,\"Status\":\"OK\"},{\"Position\":[1,1.345390611416427],\"SegmentID\":1,\"Water\":0,\"Light\":1.010683996823932,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.439034263480314,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.391153989809308,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 34,
+      "timestamp": "2025-11-16T20:44:50.334Z",
+      "elapsedSeconds": 33,
+      "cameras": "[{\"Position\":[0,0.8389499969780445],\"SegmentID\":0,\"Water\":0,\"Light\":1.0931263422425483,\"Status\":\"OK\"},{\"Position\":[1,1.362307273871032],\"SegmentID\":1,\"Water\":0,\"Light\":1.0035051127960803,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.455950925934919,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.41330757222248626,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 35,
+      "timestamp": "2025-11-16T20:44:51.345Z",
+      "elapsedSeconds": 34,
+      "cameras": "[{\"Position\":[0,0.8557999990880489],\"SegmentID\":0,\"Water\":0,\"Light\":1.0983974583058047,\"Status\":\"OK\"},{\"Position\":[1,1.3791572759810364],\"SegmentID\":1,\"Water\":0,\"Light\":0.9968260485204422,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.4728009280449235,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.435954851077993,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 36,
+      "timestamp": "2025-11-16T20:44:52.351Z",
+      "elapsedSeconds": 35,
+      "cameras": "[{\"Position\":[0,0.8725666664540768],\"SegmentID\":0,\"Water\":0,\"Light\":1.1028325277158477,\"Status\":\"OK\"},{\"Position\":[1,1.3959239433470643],\"SegmentID\":1,\"Water\":0,\"Light\":0.9907220478055601,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.4895675954109513,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.45901202746007536,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 37,
+      "timestamp": "2025-11-16T20:44:53.363Z",
+      "elapsedSeconds": 36,
+      "cameras": "[{\"Position\":[0,0.8894333317875862],\"SegmentID\":0,\"Water\":0,\"Light\":1.1063895237559533,\"Status\":\"OK\"},{\"Position\":[1,1.4127906086805737],\"SegmentID\":1,\"Water\":0,\"Light\":0.9851946856747757,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.5064342607444607,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.48267317725945047,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 38,
+      "timestamp": "2025-11-16T20:44:54.371Z",
+      "elapsedSeconds": 37,
+      "cameras": "[{\"Position\":[0,0.9062333330512047],\"SegmentID\":0,\"Water\":0,\"Light\":1.108947639995669,\"Status\":\"OK\"},{\"Position\":[1,1.4295906099441922],\"SegmentID\":1,\"Water\":0,\"Light\":0.9803592115500949,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.523234262008079,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.5066425107817608,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 39,
+      "timestamp": "2025-11-16T20:44:55.378Z",
+      "elapsedSeconds": 38,
+      "cameras": "[{\"Position\":[0,0.9230166673660278],\"SegmentID\":0,\"Water\":0,\"Light\":1.110445779947101,\"Status\":\"OK\"},{\"Position\":[1,1.4463739442590153],\"SegmentID\":1,\"Water\":0,\"Light\":0.9762459268008977,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.5400175963229024,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.5309205488518925,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 40,
+      "timestamp": "2025-11-16T20:44:56.385Z",
+      "elapsedSeconds": 39,
+      "cameras": "[{\"Position\":[0,0.939800001680851],\"SegmentID\":0,\"Water\":0,\"Light\":1.1108184741895542,\"Status\":\"OK\"},{\"Position\":[1,1.4631572785738385],\"SegmentID\":1,\"Water\":0,\"Light\":0.9728898244045117,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.5568009306377255,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.5554587482726204,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 41,
+      "timestamp": "2025-11-16T20:44:57.393Z",
+      "elapsedSeconds": 40,
+      "cameras": "[{\"Position\":[0,0.9565999992191792],\"SegmentID\":0,\"Water\":0,\"Light\":1.1100036996407898,\"Status\":\"OK\"},{\"Position\":[1,1.4799572761121667],\"SegmentID\":1,\"Water\":0,\"Light\":0.97031909900048,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.5736009281760537,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.5802053354279262,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 42,
+      "timestamp": "2025-11-16T20:44:58.404Z",
+      "elapsedSeconds": 41,
+      "cameras": "[{\"Position\":[0,0.9734500013291836],\"SegmentID\":0,\"Water\":0,\"Light\":1.1079401344237707,\"Status\":\"OK\"},{\"Position\":[1,1.496807278222171],\"SegmentID\":1,\"Water\":0,\"Light\":0.9685537757049107,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.590450930286058,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.6051295003742251,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 43,
+      "timestamp": "2025-11-16T20:44:59.417Z",
+      "elapsedSeconds": 42,
+      "cameras": "[{\"Position\":[0,0.9903333336114883],\"SegmentID\":0,\"Water\":0,\"Light\":1.104576552571211,\"Status\":\"OK\"},{\"Position\":[1,1.5136906105044758],\"SegmentID\":1,\"Water\":0,\"Light\":0.9676117677469418,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.607334262568363,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.6301220953725086,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 44,
+      "timestamp": "2025-11-16T20:45:00.425Z",
+      "elapsedSeconds": 43,
+      "cameras": "[{\"Position\":[0.007133331149816513,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.104169858989975,\"Status\":\"OK\"},{\"Position\":[1,1.530490608042804],\"SegmentID\":1,\"Water\":0,\"Light\":0.9674955307366054,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.624134260106691,2],\"SegmentID\":2,\"Water\":0.4375,\"Light\":0.6549223166158298,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 45,
+      "timestamp": "2025-11-16T20:45:01.433Z",
+      "elapsedSeconds": 44,
+      "cameras": "[{\"Position\":[0.02393333613872528,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.1082178813701753,\"Status\":\"OK\"},{\"Position\":[1,1.5472906130317128],\"SegmentID\":1,\"Water\":0,\"Light\":0.9681876112747917,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.6409342650956,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.6795631237533328,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 46,
+      "timestamp": "2025-11-16T20:45:01.759Z",
+      "elapsedSeconds": 44,
+      "cameras": "[{\"Position\":[0.029366668313741684,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.1092497180221719,\"Status\":\"OK\"},{\"Position\":[1,1.5527239452067292],\"SegmentID\":1,\"Water\":0,\"Light\":0.9685812258273055,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.646367597270616,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.6874828250763166,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 47,
+      "timestamp": "2025-11-16T20:45:02.766Z",
+      "elapsedSeconds": 45,
+      "cameras": "[{\"Position\":[0.046150002628564835,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.1116022017818017,\"Status\":\"OK\"},{\"Position\":[1,1.5695072795215523],\"SegmentID\":1,\"Water\":0,\"Light\":0.970307016400739,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.6631509315854394,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.7117456870394825,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 48,
+      "timestamp": "2025-11-16T20:45:03.779Z",
+      "elapsedSeconds": 46,
+      "cameras": "[{\"Position\":[0.0630333349108696,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.1127344118220437,\"Status\":\"OK\"},{\"Position\":[1,1.586390611803857],\"SegmentID\":1,\"Water\":0,\"Light\":0.972792452730248,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.680034263867744,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.7357725152522838,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 49,
+      "timestamp": "2025-11-16T20:45:04.787Z",
+      "elapsedSeconds": 47,
+      "cameras": "[{\"Position\":[0.07983333244919777,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.1126887095013631,\"Status\":\"OK\"},{\"Position\":[1,1.6031906093421853],\"SegmentID\":1,\"Water\":0,\"Light\":0.9759677780494584,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.6968342614060723,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.7592051698364826,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 50,
+      "timestamp": "2025-11-16T20:45:05.801Z",
+      "elapsedSeconds": 48,
+      "cameras": "[{\"Position\":[0.09673333168029785,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.111528253365541,\"Status\":\"OK\"},{\"Position\":[1,1.6200906085732854],\"SegmentID\":1,\"Water\":0,\"Light\":0.9798152064292215,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.7137342606371724,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.7822006023090929,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 51,
+      "timestamp": "2025-11-16T20:45:06.807Z",
+      "elapsedSeconds": 49,
+      "cameras": "[{\"Position\":[0.1135166697204113,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.1093421776953758,\"Status\":\"OK\"},{\"Position\":[1,1.6368739466133988],\"SegmentID\":1,\"Water\":0,\"Light\":0.9842228756859573,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.730517598677286,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.8043678161849425,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 52,
+      "timestamp": "2025-11-16T20:45:07.819Z",
+      "elapsedSeconds": 50,
+      "cameras": "[{\"Position\":[0.13036666810512543,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.1061913155008964,\"Status\":\"OK\"},{\"Position\":[1,1.653723944998113],\"SegmentID\":1,\"Water\":0,\"Light\":0.9891665399238128,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.747367597062,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.8258553101033542,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 53,
+      "timestamp": "2025-11-16T20:45:08.829Z",
+      "elapsedSeconds": 51,
+      "cameras": "[{\"Position\":[0.14721666648983955,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.102169170844278,\"Status\":\"OK\"},{\"Position\":[1,1.670573943382827],\"SegmentID\":1,\"Water\":0,\"Light\":0.9945526006006401,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.764217595446714,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.8464782265619845,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 54,
+      "timestamp": "2025-11-16T20:45:09.835Z",
+      "elapsedSeconds": 52,
+      "cameras": "[{\"Position\":[0.16394999995827675,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.097404051750114,\"Status\":\"OK\"},{\"Position\":[1,1.6873072768512642],\"SegmentID\":1,\"Water\":0,\"Light\":1.0002565239951287,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.7809509289151513,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.8660106007870308,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 55,
+      "timestamp": "2025-11-16T20:45:10.843Z",
+      "elapsedSeconds": 53,
+      "cameras": "[{\"Position\":[0.18076666444540024,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.09193794278048,\"Status\":\"OK\"},{\"Position\":[1,1.7041239413383877],\"SegmentID\":1,\"Water\":0,\"Light\":1.0062568834532537,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.7977675934022748,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.8845990298180857,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 56,
+      "timestamp": "2025-11-16T20:45:11.849Z",
+      "elapsedSeconds": 54,
+      "cameras": "[{\"Position\":[0.19753333181142807,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0859124467058754,\"Status\":\"OK\"},{\"Position\":[1,1.7208906087044156],\"SegmentID\":1,\"Water\":0,\"Light\":1.0124139872696154,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.8145342607683026,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9020070870739127,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 57,
+      "timestamp": "2025-11-16T20:45:12.859Z",
+      "elapsedSeconds": 55,
+      "cameras": "[{\"Position\":[0.21435000002384186,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0793954577653124,\"Status\":\"OK\"},{\"Position\":[1,1.7377072769168294],\"SegmentID\":1,\"Water\":0,\"Light\":1.0186674147232877,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.8313509289807164,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9182563113941141,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 58,
+      "timestamp": "2025-11-16T20:45:13.866Z",
+      "elapsedSeconds": 56,
+      "cameras": "[{\"Position\":[0.23114999756217003,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.072517323834688,\"Status\":\"OK\"},{\"Position\":[1,1.7545072744551575],\"SegmentID\":1,\"Water\":0,\"Light\":1.0248926526363402,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.8481509265190446,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9332011302152521,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 59,
+      "timestamp": "2025-11-16T20:45:14.875Z",
+      "elapsedSeconds": 57,
+      "cameras": "[{\"Position\":[0.24796666577458382,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0653716506405315,\"Status\":\"OK\"},{\"Position\":[1,1.7713239426675713],\"SegmentID\":1,\"Water\":0,\"Light\":1.0310000362645062,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.8649675947314583,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9467988213130173,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 60,
+      "timestamp": "2025-11-16T20:45:15.883Z",
+      "elapsedSeconds": 58,
+      "cameras": "[{\"Position\":[0.2647833339869976,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.058072552807815,\"Status\":\"OK\"},{\"Position\":[1,1.788140610879985],\"SegmentID\":1,\"Water\":0,\"Light\":1.0368803783105525,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.881784262943872,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9589673653561915,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 61,
+      "timestamp": "2025-11-16T20:45:16.890Z",
+      "elapsedSeconds": 59,
+      "cameras": "[{\"Position\":[0.28154999762773514,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0507483743998205,\"Status\":\"OK\"},{\"Position\":[1,1.8049072745207226],\"SegmentID\":1,\"Water\":0,\"Light\":1.042414896853534,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.8985509265846097,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9696171724626625,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 62,
+      "timestamp": "2025-11-16T20:45:17.898Z",
+      "elapsedSeconds": 60,
+      "cameras": "[{\"Position\":[0.2983333356678486,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.043474083669741,\"Status\":\"OK\"},{\"Position\":[1,1.821690612560836],\"SegmentID\":1,\"Water\":0,\"Light\":1.047525429942032,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.915334264624723,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9787421574028987,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 63,
+      "timestamp": "2025-11-16T20:45:18.904Z",
+      "elapsedSeconds": 61,
+      "cameras": "[{\"Position\":[0.31513333320617676,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0363510457734801,\"Status\":\"OK\"},{\"Position\":[1,1.8384906100991643],\"SegmentID\":1,\"Water\":0,\"Light\":1.0521114237878755,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.9321342621630513,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9862921084867708,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 64,
+      "timestamp": "2025-11-16T20:45:19.912Z",
+      "elapsedSeconds": 62,
+      "cameras": "[{\"Position\":[0.3319166675209999,1],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0294905921470616,\"Status\":\"OK\"},{\"Position\":[1,1.8552739444139874],\"SegmentID\":1,\"Water\":0,\"Light\":1.056067552865569,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.9489175964778744,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9922141386758209,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 65,
+      "timestamp": "2025-11-16T20:45:20.918Z",
+      "elapsedSeconds": 63,
+      "cameras": "[{\"Position\":[0.34869999811053276,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0229778222547827,\"Status\":\"OK\"},{\"Position\":[1,1.8720572750035203],\"SegmentID\":1,\"Water\":0,\"Light\":1.0593063549477755,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.9657009270674073,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9964866416804514,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 66,
+      "timestamp": "2025-11-16T20:45:21.924Z",
+      "elapsedSeconds": 64,
+      "cameras": "[{\"Position\":[0.3654666654765606,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.016905020005528,\"Status\":\"OK\"},{\"Position\":[1,1.888823942369548],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.0617382515153917,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.982467594433435,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":0.9990862224427246,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 67,
+      "timestamp": "2025-11-16T20:45:22.931Z",
+      "elapsedSeconds": 65,
+      "cameras": "[{\"Position\":[0.3822333328425884,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0113451758144922,\"Status\":\"OK\"},{\"Position\":[1,1.905590609735576],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.0632849636643686,\"Status\":\"LOWLIGHT\"},{\"Position\":[2.999234261799463,2],\"SegmentID\":2,\"Water\":0.1875,\"Light\":1.0000047505822243,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 68,
+      "timestamp": "2025-11-16T20:45:23.936Z",
+      "elapsedSeconds": 66,
+      "cameras": "[{\"Position\":[0.39900000020861626,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0063705618856182,\"Status\":\"OK\"},{\"Position\":[1,1.9223572771016038],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.0638708055957502,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.9839990708345088],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9992386816655825,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 69,
+      "timestamp": "2025-11-16T20:45:24.947Z",
+      "elapsedSeconds": 67,
+      "cameras": "[{\"Position\":[0.41583333536982536,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0020295417756446,\"Status\":\"OK\"},{\"Position\":[1,1.9391906122628129],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.0634230145280306,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.9671657356732997],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9967774535474384,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 70,
+      "timestamp": "2025-11-16T20:45:25.959Z",
+      "elapsedSeconds": 68,
+      "cameras": "[{\"Position\":[0.4326999969780445,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9983927750163821,\"Status\":\"OK\"},{\"Position\":[1,1.956057273871032],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.061870925585197,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.9502990740650805],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9926233522696942,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 71,
+      "timestamp": "2025-11-16T20:45:26.966Z",
+      "elapsedSeconds": 69,
+      "cameras": "[{\"Position\":[0.44946666434407234,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9955312255212034,\"Status\":\"OK\"},{\"Position\":[1,1.9728239412370598],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.0591794882076608,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.9335324066990527],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9868401354009292,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 72,
+      "timestamp": "2025-11-16T20:45:27.978Z",
+      "elapsedSeconds": 70,
+      "cameras": "[{\"Position\":[0.4663666673004627,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.993444302885252,\"Status\":\"OK\"},{\"Position\":[1,1.9897239441934502],\"SegmentID\":1,\"Water\":0.75,\"Light\":1.0552618962395064,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.9166324037426623],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9793719112485028,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 73,
+      "timestamp": "2025-11-16T20:45:28.988Z",
+      "elapsedSeconds": 71,
+      "cameras": "[{\"Position\":[0.4831666685640812,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9921896925711519,\"Status\":\"OK\"},{\"Position\":[1.0065239454570687,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0520432669196547,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.8998324024790438],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.970354373557686,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 74,
+      "timestamp": "2025-11-16T20:45:30.000Z",
+      "elapsedSeconds": 72,
+      "cameras": "[{\"Position\":[0.500050000846386,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9917686012717492,\"Status\":\"OK\"},{\"Position\":[1.0234072777393735,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0502217676887269,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.882949070196739],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9597369918487757,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 75,
+      "timestamp": "2025-11-16T20:45:31.008Z",
+      "elapsedSeconds": 73,
+      "cameras": "[{\"Position\":[0.5168499983847141,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9921905261440064,\"Status\":\"OK\"},{\"Position\":[1.0402072752777016,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0466562139879318,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.866149072658411],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9476771582036485,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 76,
+      "timestamp": "2025-11-16T20:45:32.016Z",
+      "elapsedSeconds": 74,
+      "cameras": "[{\"Position\":[0.5336499996483326,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9934459573944318,\"Status\":\"OK\"},{\"Position\":[1.05700727654132,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0413578042746618,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.8493490713947924],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9341855420372028,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 77,
+      "timestamp": "2025-11-16T20:45:33.025Z",
+      "elapsedSeconds": 75,
+      "cameras": "[{\"Position\":[0.5504666678607464,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9955213998114705,\"Status\":\"OK\"},{\"Position\":[1.0738239447537339,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0343434356997763,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.8325324031823786],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9193124656853124,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 78,
+      "timestamp": "2025-11-16T20:45:33.332Z",
+      "elapsedSeconds": 76,
+      "cameras": "[{\"Position\":[0.5555833354592323,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9963116570482365,\"Status\":\"OK\"},{\"Position\":[1.0789406123522198,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0318744961047908,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.8274157355838927],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9145263671985386,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 79,
+      "timestamp": "2025-11-16T20:45:34.339Z",
+      "elapsedSeconds": 77,
+      "cameras": "[{\"Position\":[0.5723500028252602,1],\"SegmentID\":0,\"Water\":0,\"Light\":0.9994038345548576,\"Status\":\"OK\"},{\"Position\":[1.0957072797182477,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0227090879958425,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.8106490682178649],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.8980278218495049,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 80,
+      "timestamp": "2025-11-16T20:45:35.348Z",
+      "elapsedSeconds": 78,
+      "cameras": "[{\"Position\":[0.5891666635870934,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.003247112563427,\"Status\":\"OK\"},{\"Position\":[1.1125239404800809,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":1.0118966764229416,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.7938324074560317],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.8802863466312822,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 81,
+      "timestamp": "2025-11-16T20:45:36.352Z",
+      "elapsedSeconds": 79,
+      "cameras": "[{\"Position\":[0.6059166677296162,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0077647326008699,\"Status\":\"OK\"},{\"Position\":[1.1292739446226037,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":0.9995664229753566,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.7770824033135089],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.8615092765152348,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 82,
+      "timestamp": "2025-11-16T20:45:37.361Z",
+      "elapsedSeconds": 80,
+      "cameras": "[{\"Position\":[0.62273333594203,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0129342334305975,\"Status\":\"OK\"},{\"Position\":[1.1460906128350175,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":0.9856796399329839,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.760265735101095],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.841633931427157,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 83,
+      "timestamp": "2025-11-16T20:45:38.369Z",
+      "elapsedSeconds": 81,
+      "cameras": "[{\"Position\":[0.6395333334803581,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0186657919418174,\"Status\":\"OK\"},{\"Position\":[1.1628906103733456,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":0.9703648414631617,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.743465737562767],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.8208442350174683,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 84,
+      "timestamp": "2025-11-16T20:45:39.377Z",
+      "elapsedSeconds": 82,
+      "cameras": "[{\"Position\":[0.6563333347439766,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0248892441152662,\"Status\":\"OK\"},{\"Position\":[1.179690611636964,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":0.9536818461591302,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.7266657362991484],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.7992135175267961,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 85,
+      "timestamp": "2025-11-16T20:45:40.384Z",
+      "elapsedSeconds": 83,
+      "cameras": "[{\"Position\":[0.6731333322823048,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0315223991624405,\"Status\":\"OK\"},{\"Position\":[1.1964906091752923,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.9357093448000642,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.7098657387608203],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.7768361855753091,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 86,
+      "timestamp": "2025-11-16T20:45:41.390Z",
+      "elapsedSeconds": 84,
+      "cameras": "[{\"Position\":[0.6898833326995373,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0384555980596841,\"Status\":\"OK\"},{\"Position\":[1.2132406095925248,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.9165900009271664,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.6931157383435878],\"SegmentID\":2,\"Water\":0,\"Light\":0.7538772087636108,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 87,
+      "timestamp": "2025-11-16T20:45:42.399Z",
+      "elapsedSeconds": 85,
+      "cameras": "[{\"Position\":[0.7067000009119511,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.045643576883959,\"Status\":\"OK\"},{\"Position\":[1.2300572778049386,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.8962772306089754,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.676299070131174],\"SegmentID\":2,\"Water\":0,\"Light\":0.7302717174449063,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 88,
+      "timestamp": "2025-11-16T20:45:43.409Z",
+      "elapsedSeconds": 86,
+      "cameras": "[{\"Position\":[0.7235333323478699,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0529676153317065,\"Status\":\"OK\"},{\"Position\":[1.2468906092408574,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.8749157478233803,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.6594657386952552],\"SegmentID\":2,\"Water\":0,\"Light\":0.7061820277397473,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 89,
+      "timestamp": "2025-11-16T20:45:44.416Z",
+      "elapsedSeconds": 87,
+      "cameras": "[{\"Position\":[0.740316666662693,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0602959801606453,\"Status\":\"OK\"},{\"Position\":[1.2636739435556805,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.852688692015475,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.642682404380432],\"SegmentID\":2,\"Water\":0,\"Light\":0.6818000553670384,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 90,
+      "timestamp": "2025-11-16T20:45:45.422Z",
+      "elapsedSeconds": 88,
+      "cameras": "[{\"Position\":[0.7571000009775162,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.067545619193377,\"Status\":\"OK\"},{\"Position\":[1.2804572778705037,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.8296317521667398,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.6258990700656089],\"SegmentID\":2,\"Water\":0,\"Light\":0.6571483502923657,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 91,
+      "timestamp": "2025-11-16T20:45:46.429Z",
+      "elapsedSeconds": 89,
+      "cameras": "[{\"Position\":[0.7738833352923393,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0746102451243427,\"Status\":\"OK\"},{\"Position\":[1.2972406121853268,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.8058443400523139,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.6091157357507857],\"SegmentID\":2,\"Water\":0,\"Light\":0.63231841696184,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 92,
+      "timestamp": "2025-11-16T20:45:47.443Z",
+      "elapsedSeconds": 90,
+      "cameras": "[{\"Position\":[0.7908166646957397,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0814418570864945,\"Status\":\"OK\"},{\"Position\":[1.3141739415887272,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.7812061650833936,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.5921824063473853],\"SegmentID\":2,\"Water\":0,\"Light\":0.6071764179873758,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 93,
+      "timestamp": "2025-11-16T20:45:48.456Z",
+      "elapsedSeconds": 91,
+      "cameras": "[{\"Position\":[0.8076666668057442,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0878365269330794,\"Status\":\"OK\"},{\"Position\":[1.3310239436987317,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.7561552753746534,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.5753324042373809],\"SegmentID\":2,\"Water\":0,\"Light\":0.5821555222467525,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 94,
+      "timestamp": "2025-11-16T20:45:49.465Z",
+      "elapsedSeconds": 92,
+      "cameras": "[{\"Position\":[0.8244666643440723,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0937057854182428,\"Status\":\"OK\"},{\"Position\":[1.3478239412370598,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.730749810256981,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.5585324066990527],\"SegmentID\":2,\"Water\":0,\"Light\":0.5572894924000825,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 95,
+      "timestamp": "2025-11-16T20:45:50.473Z",
+      "elapsedSeconds": 93,
+      "cameras": "[{\"Position\":[0.8412666693329811,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.0989663382092456,\"Status\":\"OK\"},{\"Position\":[1.3646239462259686,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.7050160426983885,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.541732401710144],\"SegmentID\":2,\"Water\":0,\"Light\":0.5325829347360672,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 96,
+      "timestamp": "2025-11-16T20:45:51.480Z",
+      "elapsedSeconds": 94,
+      "cameras": "[{\"Position\":[0.858049999922514,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.1035145067408942,\"Status\":\"OK\"},{\"Position\":[1.3814072768155015,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.6790781682794533,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.524949071120611],\"SegmentID\":2,\"Water\":0,\"Light\":0.5081346939640101,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 97,
+      "timestamp": "2025-11-16T20:45:52.488Z",
+      "elapsedSeconds": 95,
+      "cameras": "[{\"Position\":[0.8748499974608421,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.107264158370531,\"Status\":\"OK\"},{\"Position\":[1.3982072743538296,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.6529807847236574,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.508149073582283],\"SegmentID\":2,\"Water\":0,\"Light\":0.483966298305046,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 98,
+      "timestamp": "2025-11-16T20:45:53.497Z",
+      "elapsedSeconds": 96,
+      "cameras": "[{\"Position\":[0.8916666656732559,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.1101226797434682,\"Status\":\"OK\"},{\"Position\":[1.4150239425662434,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.6268171717526654,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.491332405369869],\"SegmentID\":2,\"Water\":0,\"Light\":0.4601441131325132,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 99,
+      "timestamp": "2025-11-16T20:45:54.505Z",
+      "elapsedSeconds": 97,
+      "cameras": "[{\"Position\":[0.9084499999880791,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.1119988558060616,\"Status\":\"OK\"},{\"Position\":[1.4318072768810666,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.6007554978124959,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.474549071055046],\"SegmentID\":2,\"Water\":0,\"Light\":0.4367987421866434,\"Status\":\"OK\"}]"
+    },
+    {
+      "entry": 100,
+      "timestamp": "2025-11-16T20:45:55.513Z",
+      "elapsedSeconds": 98,
+      "cameras": "[{\"Position\":[0.9252666682004929,1],\"SegmentID\":0,\"Water\":0,\"Light\":1.112822609035952,\"Status\":\"OK\"},{\"Position\":[1.4486239450934804,2],\"SegmentID\":1,\"Water\":0,\"Light\":0.5747791728988471,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.4577324028426322],\"SegmentID\":2,\"Water\":0,\"Light\":0.41389275738648434,\"Status\":\"OK\"}]"
+    }
+  ]
+}
