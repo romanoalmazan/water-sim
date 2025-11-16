@@ -34,12 +34,11 @@
 }
 
 .camera-dot {
-  animation: camera-flash 1s ease-in-out infinite;
   filter: drop-shadow(0 0 4px currentColor);
 }
 
 .camera-pulse-outer {
-  animation: camera-pulse 1s ease-in-out infinite;
+  /* No animation - static outer circle */
 }
 
 .camera-label {
@@ -47,62 +46,5 @@
   font-weight: bold;
   font-family: Arial, sans-serif;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-  animation: label-pulse 1s ease-in-out infinite;
-}
-
-@keyframes camera-flash {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.2);
-  }
-}
-
-@keyframes camera-pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.5);
-  }
-}
-
-@keyframes label-pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-/* Stagger animations for different cameras */
-.camera-dot:nth-of-type(1) {
-  animation-delay: 0s;
-}
-
-.camera-dot:nth-of-type(2) {
-  animation-delay: 0.33s;
-}
-
-.camera-dot:nth-of-type(3) {
-  animation-delay: 0.66s;
-}
-
-.camera-pulse-outer:nth-of-type(1) {
-  animation-delay: 0s;
-}
-
-.camera-pulse-outer:nth-of-type(2) {
-  animation-delay: 0.33s;
-}
-
-.camera-pulse-outer:nth-of-type(3) {
-  animation-delay: 0.66s;
 }
 
