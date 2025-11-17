@@ -1,30 +1,22 @@
 #!/bin/bash
-echo "Starting data collection for 100 seconds..."
-echo "[" > sewer_data_100.json
+echo "Starting continuous data streaming (overwrites each second)..."
+echo "Press Ctrl+C to stop..."
 
-for i in {1..100}; do
-  echo "Collecting entry $i/100..."
-  
+while true; do
   # Get current timestamp
   timestamp=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
   
   # Get data from API
-  data=$(curl -s http://localhost:3000/api/json)
+  cameras=$(curl -s http://localhost:3000/api/json)
   
-  # Create entry with timestamp
-  entry="{\"timestamp\":\"$timestamp\",\"entry\":$i,\"data\":$data}"
-  
-  # Add to file
-  echo "  $entry" >> sewer_data_100.json
-  
-  # Add comma if not last entry
-  if [ $i -lt 100 ]; then
-    echo "," >> sewer_data_100.json
-  fi
+  # Create entry with simplified format (overwrite file each time)
+  cat > sewer_data_100.json << EOF
+{
+  "timestamp": "$timestamp",
+  "cameras": $cameras
+}
+EOF
   
   # Wait 1 second
   sleep 1
 done
-
-echo "]" >> sewer_data_100.json
-echo "Data collection complete! Saved to sewer_data_100.json"
