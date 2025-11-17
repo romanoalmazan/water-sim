@@ -1,10 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
 import type { Camera } from '../types/camera';
+import type { ScreenshotData } from '../types/screenshot';
 import './MapView.css';
 
 interface MapViewProps {
   cameras: Camera[];
+  screenshots?: ScreenshotData[];
+  viewMode: 'live' | 'saved';
   onCameraClick?: (segmentId: number) => void;
+  onScreenshotClick?: (screenshot: ScreenshotData) => void;
 }
 
 // Calibration values from Python/Tkinter implementation
@@ -35,7 +39,7 @@ function coordToPixel(x: number, y: number, mapWidth: number, mapHeight: number)
   return { x: pixelX, y: pixelY };
 }
 
-export function MapView({ cameras, onCameraClick }: MapViewProps) {
+export function MapView({ cameras, screenshots = [], viewMode, onCameraClick, onScreenshotClick }: MapViewProps) {
   const [mapDimensions, setMapDimensions] = useState({ width: 700, height: 700 });
   const [displaySize, setDisplaySize] = useState({ width: 700, height: 700 });
   const mapWrapperRef = useRef<HTMLDivElement>(null);
@@ -85,7 +89,7 @@ export function MapView({ cameras, onCameraClick }: MapViewProps) {
           viewBox={`0 0 ${mapDimensions.width} ${mapDimensions.height}`}
           preserveAspectRatio="xMidYMid meet"
         >
-          {cameras.map((camera) => {
+          {viewMode === 'live' && cameras.map((camera) => {
             const [x, y] = camera.Position;
             const position = coordToPixel(x, y, mapDimensions.width, mapDimensions.height);
             const color = CAMERA_COLORS[camera.SegmentID] || '#000000';
@@ -125,6 +129,50 @@ export function MapView({ cameras, onCameraClick }: MapViewProps) {
                   fill={color}
                 >
                   Camera {camera.SegmentID}
+                </text>
+              </g>
+            );
+          })}
+          {viewMode === 'saved' && screenshots.map((screenshot) => {
+            const [x, y] = screenshot.position;
+            const position = coordToPixel(x, y, mapDimensions.width, mapDimensions.height);
+            const color = '#FF0000'; // Red for saved screenshots
+            
+            return (
+              <g key={screenshot.id}>
+                {/* Outer circle */}
+                <circle
+                  cx={position.x}
+                  cy={position.y}
+                  r="12"
+                  fill={color}
+                  opacity="0.3"
+                  className="camera-pulse-outer"
+                  onClick={() => onScreenshotClick?.(screenshot)}
+                  style={{ cursor: onScreenshotClick ? 'pointer' : 'default' }}
+                />
+                {/* Main screenshot dot */}
+                <circle
+                  cx={position.x}
+                  cy={position.y}
+                  r="6"
+                  fill={color}
+                  className="camera-dot"
+                  style={{ 
+                    cursor: onScreenshotClick ? 'pointer' : 'default'
+                  } as React.CSSProperties}
+                  onClick={() => onScreenshotClick?.(screenshot)}
+                />
+                {/* Label */}
+                <text
+                  x={position.x}
+                  y={position.y - 18}
+                  textAnchor="middle"
+                  className="camera-label"
+                  fill={color}
+                  fontSize="11"
+                >
+                  {new Date(screenshot.timestamp).toLocaleTimeString()}
                 </text>
               </g>
             );
