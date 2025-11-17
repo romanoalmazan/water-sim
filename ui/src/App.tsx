@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { CameraCard } from './components/CameraCard';
 import { MapView } from './components/MapView';
 import CameraStreamModal from './components/CameraStreamModal';
+import ScreenshotTable from './components/ScreenshotTable';
 import { fetchCameraData } from './services/api';
 import type { Camera } from './types/camera';
+import type { ScreenshotData } from './types/screenshot';
 import './App.css';
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   const [selectedCameraId, setSelectedCameraId] = useState<number | null>(null);
+  const [selectedScreenshot, setSelectedScreenshot] = useState<ScreenshotData | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -107,6 +110,21 @@ function App() {
           onClose={() => setSelectedCameraId(null)}
         />
       )}
+
+      {/* Screenshot Viewer Modal */}
+      {selectedScreenshot !== null && (
+        <CameraStreamModal
+          robotId={selectedScreenshot.robotId}
+          cameras={cameras}
+          screenshotData={selectedScreenshot}
+          onClose={() => setSelectedScreenshot(null)}
+        />
+      )}
+
+      {/* Screenshot Table at the bottom */}
+      <ScreenshotTable
+        onScreenshotClick={(screenshot) => setSelectedScreenshot(screenshot)}
+      />
     </div>
   );
 }

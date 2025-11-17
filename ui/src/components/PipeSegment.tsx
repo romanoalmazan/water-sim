@@ -1,17 +1,15 @@
 import { PipeSegment as PipeSegmentType } from '../types/pipeData'
 
-// Convert light intensity to color gradient matching ec-2025 dataset
-// Light values range from ~0 to >1.0 (can exceed 1.0, e.g., 1.059 = 270/255)
+// Convert light intensity to color gradient
+// Light values range from ~0 to >1.0 (can exceed 1.0)
 // Higher light = cleaner (lighter blue), lower light = dirtier (brown)
 // Applied as an overlay/mix with base water blue
-// Based on actual data: Camera 0: ~0.478 (122/255), Camera 1: ~1.059 (270/255), Camera 2: ~0.102 (26/255)
 const lightToColor = (light: number): string => {
   // Convert light to 0-255 scale (matching display format)
   const light255 = light * 255
   
   // Normalize to 0-1 range for color calculation
   // Use a reasonable max (e.g., 300) to handle values >255
-  // This matches the actual data range from ec-2025
   const maxLight = 300 // Accommodate values like 270/255
   const normalizedLight = Math.max(0, Math.min(maxLight, light255)) / maxLight
   

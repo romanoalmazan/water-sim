@@ -27,12 +27,66 @@ app.post('/api/screenshots', (req, res) => {
   try {
     const { robotId, image, segmentData } = req.body
 
-    if (!robotId || !image || !segmentData) {
-      return res.status(400).json({ error: 'Missing required fields' })
+    console.log('Received screenshot request:', {
+      hasRobotId: !!robotId,
+      hasImage: !!image,
+      imageLength: image?.length,
+      hasSegmentData: !!segmentData,
+      segmentDataKeys: segmentData ? Object.keys(segmentData) : null
+    })
+
+    // Check for missing fields (robotId can be 0, so check explicitly)
+    if ((robotId === undefined || robotId === null) || !image || !segmentData) {
+      return res.status(400).json({ 
+        error: 'Missing required fields',
+        received: {
+          robotId: robotId,
+          hasRobotId: robotId !== undefined && robotId !== null,
+          hasImage: !!image,
+          imageLength: image?.length,
+          hasSegmentData: !!segmentData,
+          segmentDataType: typeof segmentData
+        }
+      })
+    }
+
+    // Validate segmentData structure
+    if (!segmentData.SegmentID && segmentData.SegmentID !== 0) {
+      return res.status(400).json({ error: 'Invalid segmentData: missing SegmentID' })
+    }
+
+    // Validate image is base64
+    if (typeof image !== 'string' || image.length === 0) {
+      return res.status(400).json({ 
+        error: 'Invalid image: must be a non-empty string',
+        imageType: typeof image,
+        imageLength: image?.length
+      })
+    }
+    
+    if (!image.startsWith('data:image/')) {
+      return res.status(400).json({ 
+        error: 'Invalid image format: must be base64 data URL',
+        imagePrefix: image.substring(0, 50)
+      })
     }
 
     // Read existing screenshots
-    const screenshots = JSON.parse(fs.readFileSync(screenshotsPath, 'utf8'))
+    let screenshots = []
+    if (fs.existsSync(screenshotsPath)) {
+      try {
+        const fileContent = fs.readFileSync(screenshotsPath, 'utf8')
+        screenshots = JSON.parse(fileContent)
+        if (!Array.isArray(screenshots)) {
+          console.warn('screenshots.json is not an array, resetting to empty array')
+          screenshots = []
+        }
+      } catch (parseError) {
+        console.error('Error parsing screenshots.json:', parseError)
+        // If file is corrupted, reset it
+        screenshots = []
+      }
+    }
 
     // Create new screenshot entry
     const newScreenshot = {
@@ -49,21 +103,42 @@ app.post('/api/screenshots', (req, res) => {
     // Write back to file
     fs.writeFileSync(screenshotsPath, JSON.stringify(screenshots, null, 2))
 
+    console.log('Screenshot saved successfully:', newScreenshot.id)
     res.json({ success: true, id: newScreenshot.id })
   } catch (error) {
     console.error('Error saving screenshot:', error)
-    res.status(500).json({ error: 'Failed to save screenshot' })
+    console.error('Error stack:', error.stack)
+    res.status(500).json({ 
+      error: 'Failed to save screenshot',
+      message: error.message,
+      details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    })
   }
 })
 
 // GET endpoint to retrieve screenshots
 app.get('/api/screenshots', (req, res) => {
   try {
-    const screenshots = JSON.parse(fs.readFileSync(screenshotsPath, 'utf8'))
+    if (!fs.existsSync(screenshotsPath)) {
+      return res.json([])
+    }
+    
+    const fileContent = fs.readFileSync(screenshotsPath, 'utf8')
+    const screenshots = JSON.parse(fileContent)
+    
+    if (!Array.isArray(screenshots)) {
+      console.warn('screenshots.json is not an array, returning empty array')
+      return res.json([])
+    }
+    
     res.json(screenshots)
   } catch (error) {
     console.error('Error reading screenshots:', error)
-    res.status(500).json({ error: 'Failed to read screenshots' })
+    console.error('Error stack:', error.stack)
+    res.status(500).json({ 
+      error: 'Failed to read screenshots',
+      message: error.message
+    })
   }
 })
 

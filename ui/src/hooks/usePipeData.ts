@@ -4,7 +4,7 @@ import { fetchCameraData } from '../services/api'
 import type { Camera } from '../types/camera'
 
 /**
- * Hook for fetching pipe data from the ec-2025 API
+ * Hook for fetching pipe data from static JSON file
  * Converts Camera[] to PipeSegment[] format and polls every second
  */
 export const usePipeData = (): PipeSegment[] => {
