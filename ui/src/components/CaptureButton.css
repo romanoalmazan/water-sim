@@ -1,0 +1,46 @@
+.capture-button-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.capture-button {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.capture-button:hover:not(:disabled) {
+  background: #1565c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.capture-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.capture-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.last-capture-time {
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+}
+

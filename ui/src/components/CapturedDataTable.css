@@ -1,0 +1,285 @@
+.captured-data-section {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.captured-data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.captured-data-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.captured-data-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.export-button {
+  background: #4caf50;
+  color: white;
+}
+
+.export-button:hover {
+  background: #45a049;
+}
+
+.clear-button {
+  background: #f44336;
+  color: white;
+}
+
+.clear-button:hover {
+  background: #da190b;
+}
+
+.no-captures {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
+
+.captures-table-container {
+  overflow-x: auto;
+}
+
+.captures-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.captures-table th {
+  background: #f5f5f5;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.captures-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.captures-table tr:hover {
+  background: #f9f9f9;
+}
+
+.cameras-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.camera-badge {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button-small {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-button {
+  background: #2196f3;
+  color: white;
+}
+
+.view-button:hover {
+  background: #0b7dda;
+}
+
+.delete-button {
+  background: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #da190b;
+}
+
+.capture-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.capture-detail-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.capture-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.capture-detail-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.capture-detail-body {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .capture-detail-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.capture-image-section h4,
+.capture-data-section h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.capture-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.camera-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.camera-data-item {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.camera-data-item h5 {
+  margin: 0 0 10px 0;
+  color: #1976d2;
+  font-size: 16px;
+}
+
+.camera-data-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.data-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.data-value {
+  color: #333;
+  font-family: 'Courier New', monospace;
+}
+
+.status-ok {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.status-lowlight {
+  color: #f57f17;
+  font-weight: 600;
+}
+
+.status-warning {
+  color: #d84315;
+  font-weight: 600;
+}
+

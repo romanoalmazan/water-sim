@@ -3,52 +3,71 @@ import { PipeSegment } from './PipeSegment'
 import type { Camera } from '../types/camera'
 import type { PipeSegment as PipeSegmentType } from '../types/pipeData'
 import { calculateStatus } from '../utils/statusCalculator'
+import { captureVisualization, type CapturedRecord } from '../services/captureService'
+import html2canvas from 'html2canvas'
 
 interface CameraStreamModalProps {
-  robotId: number
+  robotId: number | null // null when viewing saved capture
   onClose: () => void
   cameras: Camera[] // Use the same cameras data from App.tsx
+  savedCapture?: CapturedRecord | null // Optional saved capture to view
 }
 
-const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps) => {
+const CameraStreamModal = ({ robotId, onClose, cameras, savedCapture }: CameraStreamModalProps) => {
   const [waveOffset, setWaveOffset] = useState(0)
+  const [isCapturing, setIsCapturing] = useState(false)
   const animationFrameRef = useRef<number>()
+  const pipeSegmentRef = useRef<HTMLDivElement>(null)
+  
+  // Determine if we're viewing a saved capture or live data
+  const isViewingSavedCapture = savedCapture !== null && savedCapture !== undefined
+  
+  // For saved captures, use the camera data from the capture
+  // For live view, use current cameras
+  const displayCameras = isViewingSavedCapture ? savedCapture!.cameras : cameras
+  const displayRobotId = isViewingSavedCapture 
+    ? (savedCapture!.cameras[0]?.SegmentID ?? 0)
+    : (robotId ?? 0)
   
   // Convert Camera[] to PipeSegment[] format - memoized to update when cameras change
   const currentSegments: PipeSegmentType[] = useMemo(() => {
-    return cameras.map((cam: Camera) => ({
+    return displayCameras.map((cam: Camera) => ({
       SegmentID: cam.SegmentID,
       Water: cam.Water,
       Light: cam.Light
     }))
-  }, [cameras])
+  }, [displayCameras])
   
   // Find the current segment - memoized to update when cameras or robotId change
   const currentSegment = useMemo(() => {
     if (currentSegments.length === 0) {
       return null
     }
-    return currentSegments.find(s => s.SegmentID === robotId) || currentSegments[0]
-  }, [currentSegments, robotId])
+    return currentSegments.find(s => s.SegmentID === displayRobotId) || currentSegments[0]
+  }, [currentSegments, displayRobotId])
   
   // Find the matching camera to get Position data - memoized to update when cameras change
-  const segmentIdToFind = useMemo(() => {
-    return robotId
-  }, [robotId])
-  
   const currentCamera = useMemo(() => {
-    if (cameras.length === 0) {
+    if (displayCameras.length === 0) {
       return null
     }
-    return cameras.find(cam => cam.SegmentID === segmentIdToFind) || cameras[0]
-  }, [cameras, segmentIdToFind])
+    return displayCameras.find(cam => cam.SegmentID === displayRobotId) || displayCameras[0]
+  }, [displayCameras, displayRobotId])
   
   const position = useMemo(() => {
     return currentCamera ? currentCamera.Position : [0, 0]
   }, [currentCamera])
 
-  // Animate sin wave sliding effect using requestAnimationFrame
+  // Animate sin wave sliding effect using requestAnimationFrame (only for live view)
   useEffect(() => {
+    if (isViewingSavedCapture) {
+      // Stop animation for saved captures
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current)
+      }
+      return
+    }
+    
     const animate = () => {
       setWaveOffset((prev) => prev + 0.1)
       animationFrameRef.current = requestAnimationFrame(animate)
@@ -61,7 +80,7 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [])
+  }, [isViewingSavedCapture])
 
   // Determine camera status based on Water and Light values (matching CameraCard logic)
   const getCameraStatus = () => {
@@ -75,6 +94,43 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
   }
 
   const cameraStatus = getCameraStatus()
+
+  // Handle capture button click
+  const handleCapture = async () => {
+    if (!pipeSegmentRef.current || isCapturing || !currentCamera) return
+    
+    setIsCapturing(true)
+    try {
+      // Capture the pipe segment visualization
+      const canvas = await html2canvas(pipeSegmentRef.current, {
+        backgroundColor: '#242424',
+        scale: 1,
+        logging: false,
+      })
+      
+      const pngDataUrl = canvas.toDataURL('image/png')
+      
+      // Create capture record with ONLY the current camera being viewed
+      const record: CapturedRecord = {
+        id: `capture_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`,
+        timestamp: new Date().toISOString(),
+        pngDataUrl,
+        cameras: [JSON.parse(JSON.stringify(currentCamera))], // Save only the current camera
+      }
+      
+      // Save to localStorage
+      const existingRecords = JSON.parse(localStorage.getItem('sewer_camera_captures') || '[]')
+      existingRecords.push(record)
+      localStorage.setItem('sewer_camera_captures', JSON.stringify(existingRecords))
+      
+      alert('Capture saved successfully!')
+    } catch (error) {
+      console.error('Error capturing visualization:', error)
+      alert('Failed to capture visualization. Please try again.')
+    } finally {
+      setIsCapturing(false)
+    }
+  }
 
   return (
     <>
@@ -125,7 +181,9 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
           }}
         >
           <h3 style={{ margin: 0, color: '#fff', fontSize: '16px' }}>
-            Camera Stream - Robot {robotId}
+            {isViewingSavedCapture 
+              ? `Saved Capture - ${new Date(savedCapture!.timestamp).toLocaleString()}`
+              : `Camera Stream - Robot ${displayRobotId}`}
           </h3>
           
           {/* Camera Status Indicator - Top Right */}
@@ -150,7 +208,7 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
                 border: `2px solid ${cameraStatus.color}`,
                 backgroundColor: cameraStatus.isWarning ? cameraStatus.color : 'transparent',
                 position: 'relative',
-                animation: cameraStatus.isWarning ? 'flash 1s infinite' : 'none'
+                animation: cameraStatus.isWarning && !isViewingSavedCapture ? 'flash 1s infinite' : 'none'
               }}
             >
               <div
@@ -215,10 +273,13 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
           }}
         >
           {currentSegment ? (
-            <PipeSegment
-              segment={currentSegment}
-              waveOffset={waveOffset}
-            />
+            <div ref={pipeSegmentRef}>
+              <PipeSegment
+                segment={currentSegment}
+                waveOffset={waveOffset}
+                static={isViewingSavedCapture}
+              />
+            </div>
           ) : (
             <div style={{ color: '#fff', textAlign: 'center', padding: '20px' }}>
               Loading camera data...
@@ -226,7 +287,7 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
           )}
         </div>
 
-        {/* Footer - Data Display */}
+        {/* Footer - Data Display and Capture Button */}
         <div
           style={{
             padding: '10px 15px',
@@ -243,32 +304,55 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
-                gap: '8px',
-                fontSize: '12px',
+                gap: '12px',
+                fontSize: '18px',
                 color: '#fff'
               }}
             >
               <div>
-                <span style={{ color: '#aaa' }}>Segment ID: </span>
-                <span style={{ fontWeight: 'bold' }}>{currentSegment.SegmentID}</span>
+                <span style={{ color: '#aaa', fontSize: '18px' }}>Segment ID: </span>
+                <span style={{ fontWeight: 'bold', fontSize: '18px' }}>{currentSegment.SegmentID}</span>
               </div>
               <div>
-                <span style={{ color: '#aaa' }}>Position: </span>
-                <span style={{ fontWeight: 'bold' }}>({position[0].toFixed(2)}, {position[1].toFixed(2)})</span>
+                <span style={{ color: '#aaa', fontSize: '18px' }}>Position: </span>
+                <span style={{ fontWeight: 'bold', fontSize: '18px' }}>({position[0].toFixed(2)}, {position[1].toFixed(2)})</span>
               </div>
               <div>
-                <span style={{ color: '#aaa' }}>Water: </span>
-                <span style={{ fontWeight: 'bold' }}>{(currentSegment.Water * 100).toFixed(1)}%</span>
+                <span style={{ color: '#aaa', fontSize: '18px' }}>Water: </span>
+                <span style={{ fontWeight: 'bold', fontSize: '18px' }}>{(currentSegment.Water * 100).toFixed(1)}%</span>
               </div>
               <div>
-                <span style={{ color: '#aaa' }}>Light: </span>
-                <span style={{ fontWeight: 'bold' }}>{currentSegment.Light.toFixed(3)}</span>
+                <span style={{ color: '#aaa', fontSize: '18px' }}>Light: </span>
+                <span style={{ fontWeight: 'bold', fontSize: '18px' }}>{currentSegment.Light.toFixed(3)}</span>
               </div>
             </div>
           ) : (
-            <div style={{ color: '#aaa', fontSize: '12px', textAlign: 'center', padding: '10px' }}>
+            <div style={{ color: '#aaa', fontSize: '18px', textAlign: 'center', padding: '10px' }}>
               Waiting for camera data...
             </div>
+          )}
+          
+          {/* Capture Button - only show for live view */}
+          {!isViewingSavedCapture && (
+            <button
+              onClick={handleCapture}
+              disabled={isCapturing || !pipeSegmentRef.current || !currentCamera}
+              style={{
+                background: isCapturing ? '#666' : '#1976d2',
+                color: 'white',
+                border: 'none',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                fontSize: '14px',
+                fontWeight: '600',
+                cursor: isCapturing || !pipeSegmentRef.current || !currentCamera ? 'not-allowed' : 'pointer',
+                transition: 'all 0.2s',
+                opacity: isCapturing || !pipeSegmentRef.current || !currentCamera ? 0.6 : 1,
+                width: '100%'
+              }}
+            >
+              {isCapturing ? 'Capturing...' : '📸 Capture'}
+            </button>
           )}
         </div>
       </div>
@@ -277,4 +361,3 @@ const CameraStreamModal = ({ robotId, onClose, cameras }: CameraStreamModalProps
 }
 
 export default CameraStreamModal
-

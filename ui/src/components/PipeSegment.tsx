@@ -37,10 +37,11 @@ const lightToColor = (light: number): string => {
 interface PipeSegmentProps {
   segment: PipeSegmentType
   waveOffset: number
+  static?: boolean // If true, no animation
 }
 
 // Individual pipe segment component - round pipe with concrete walls
-export const PipeSegment = ({ segment, waveOffset }: PipeSegmentProps) => {
+export const PipeSegment = ({ segment, waveOffset, static: isStatic = false }: PipeSegmentProps) => {
   const pipeDiameter = 300
   const pipeThickness = 20 // Concrete wall thickness
   const innerDiameter = pipeDiameter - (pipeThickness * 2)
@@ -60,7 +61,16 @@ export const PipeSegment = ({ segment, waveOffset }: PipeSegmentProps) => {
   const halfChordWidth = Math.sqrt(Math.max(0, radius * radius - distanceFromCenter * distanceFromCenter))
   
   // Generate animated sin wave path for water level interface (thick squiggly line)
+  // Or static straight line if static mode
   const generateWavePath = (): string => {
+    if (isStatic) {
+      // Static mode: straight line
+      const startX = centerX - halfChordWidth
+      const endX = centerX + halfChordWidth
+      return `M ${startX},${waterYPosition} L ${endX},${waterYPosition}`
+    }
+    
+    // Animated mode: sin wave
     const amplitude = 3
     const frequency = 0.03
     const points: string[] = []

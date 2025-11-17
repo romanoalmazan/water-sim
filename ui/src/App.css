@@ -120,68 +120,7 @@
   color: #d84315;
 }
 
-.camera-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-  flex-wrap: wrap;
-}
-
-.camera-button {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border: 2px solid #1976d2;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: #fff;
-  min-width: 120px;
-}
-
-.camera-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.camera-button:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.camera-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.camera-button.camera-0 {
-  background-color: #FF0000;
-  border-color: #cc0000;
-}
-
-.camera-button.camera-0:hover:not(:disabled) {
-  background-color: #ff3333;
-  border-color: #ff0000;
-}
-
-.camera-button.camera-1 {
-  background-color: #0000FF;
-  border-color: #0000cc;
-}
-
-.camera-button.camera-1:hover:not(:disabled) {
-  background-color: #3333ff;
-  border-color: #0000ff;
-}
-
-.camera-button.camera-2 {
-  background-color: #00FF00;
-  border-color: #00cc00;
-  color: #000;
-}
-
-.camera-button.camera-2:hover:not(:disabled) {
-  background-color: #33ff33;
-  border-color: #00ff00;
+.map-container-wrapper {
+  margin-bottom: 20px;
 }
 

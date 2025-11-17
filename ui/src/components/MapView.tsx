@@ -1,10 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import type { Camera } from '../types/camera';
+import type { CapturedRecord } from '../services/captureService';
 import './MapView.css';
 
 interface MapViewProps {
   cameras: Camera[];
   onCameraClick?: (segmentId: number) => void;
+  savedCaptures?: CapturedRecord[];
+  onSavedCaptureClick?: (capture: CapturedRecord) => void;
 }
 
 // Calibration values from Python/Tkinter implementation
@@ -14,12 +17,18 @@ const Y_SCALE_FACTOR = 288.50;   // (830 - 253) / 2
 const X_OFFSET = 580;            // Pixel X position for API coordinate (0, 0)
 const Y_OFFSET = 253;            // Pixel Y position for API coordinate (0, 0)
 
-// Camera colors
-const CAMERA_COLORS: Record<number, string> = {
-  0: '#FF0000', // Red for Camera 0
-  1: '#0000FF', // Blue for Camera 1
-  2: '#00FF00', // Green for Camera 2
-};
+// Status-based colors
+function getStatusColor(status: string): string {
+  const normalizedStatus = status.toUpperCase();
+  if (normalizedStatus === 'OK') {
+    return '#00FF00'; // Green
+  } else if (normalizedStatus === 'LOWLIGHT') {
+    return '#FFFF00'; // Yellow
+  } else if (normalizedStatus === 'WARNING') {
+    return '#FF0000'; // Red
+  }
+  return '#808080'; // Gray for unknown status
+}
 
 /**
  * Converts camera coordinates to pixel positions on the map
@@ -35,9 +44,10 @@ function coordToPixel(x: number, y: number, mapWidth: number, mapHeight: number)
   return { x: pixelX, y: pixelY };
 }
 
-export function MapView({ cameras, onCameraClick }: MapViewProps) {
+export function MapView({ cameras, onCameraClick, savedCaptures = [], onSavedCaptureClick }: MapViewProps) {
   const [mapDimensions, setMapDimensions] = useState({ width: 700, height: 700 });
   const [displaySize, setDisplaySize] = useState({ width: 700, height: 700 });
+  const [viewMode, setViewMode] = useState<'live' | 'saved'>('live');
   const mapWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -65,6 +75,21 @@ export function MapView({ cameras, onCameraClick }: MapViewProps) {
   return (
     <div className="map-container">
       <div className="map-wrapper" ref={mapWrapperRef}>
+        {/* Toggle Buttons - positioned directly above map */}
+        <div className="map-view-toggle">
+          <button
+            className={`toggle-button ${viewMode === 'live' ? 'active' : ''}`}
+            onClick={() => setViewMode('live')}
+          >
+            Live
+          </button>
+          <button
+            className={`toggle-button ${viewMode === 'saved' ? 'active' : ''}`}
+            onClick={() => setViewMode('saved')}
+          >
+            Saved
+          </button>
+        </div>
         <img 
           src="/Map.png" 
           alt="Sewer System Map" 
@@ -85,71 +110,112 @@ export function MapView({ cameras, onCameraClick }: MapViewProps) {
           viewBox={`0 0 ${mapDimensions.width} ${mapDimensions.height}`}
           preserveAspectRatio="xMidYMid meet"
         >
-          {cameras.map((camera) => {
-            const [x, y] = camera.Position;
-            const position = coordToPixel(x, y, mapDimensions.width, mapDimensions.height);
-            const color = CAMERA_COLORS[camera.SegmentID] || '#000000';
-            
-            // Debug: log positions (remove in production)
-            if (process.env.NODE_ENV === 'development') {
-              console.log(`Camera ${camera.SegmentID}: coord (${x.toFixed(2)}, ${y.toFixed(2)}) -> pixel (${position.x.toFixed(0)}, ${position.y.toFixed(0)})`);
-            }
-            
-            return (
-              <g key={camera.SegmentID}>
-                {/* Outer pulsing circle */}
-                <circle
-                  cx={position.x}
-                  cy={position.y}
-                  r="15"
-                  fill={color}
-                  opacity="0.3"
-                  className="camera-pulse-outer"
-                  onClick={() => onCameraClick?.(camera.SegmentID)}
-                  style={{ cursor: onCameraClick ? 'pointer' : 'default' }}
-                />
-                {/* Main camera dot */}
-                <circle
-                  cx={position.x}
-                  cy={position.y}
-                  r="8"
-                  fill={color}
-                  className="camera-dot"
-                  style={{ 
-                    '--camera-color': color,
-                    cursor: onCameraClick ? 'pointer' : 'default'
-                  } as React.CSSProperties}
-                  onClick={() => onCameraClick?.(camera.SegmentID)}
-                />
-                {/* Label */}
-                <text
-                  x={position.x}
-                  y={position.y - 20}
-                  textAnchor="middle"
-                  className="camera-label"
-                  fill={color}
-                >
-                  Camera {camera.SegmentID}
-                </text>
-                {/* Debug: show coordinates */}
-                {process.env.NODE_ENV === 'development' && (
+          {viewMode === 'live' ? (
+            // Live view: show cameras with status colors and animation
+            cameras.map((camera) => {
+              const [x, y] = camera.Position;
+              const position = coordToPixel(x, y, mapDimensions.width, mapDimensions.height);
+              const color = getStatusColor(camera.Status);
+              
+              // Debug: log positions (remove in production)
+              if (process.env.NODE_ENV === 'development') {
+                console.log(`Camera ${camera.SegmentID}: coord (${x.toFixed(2)}, ${y.toFixed(2)}) -> pixel (${position.x.toFixed(0)}, ${position.y.toFixed(0)})`);
+              }
+              
+              return (
+                <g key={camera.SegmentID}>
+                  {/* Outer pulsing circle */}
+                  <circle
+                    cx={position.x}
+                    cy={position.y}
+                    r="15"
+                    fill={color}
+                    opacity="0.3"
+                    className="camera-pulse-outer"
+                    onClick={() => onCameraClick?.(camera.SegmentID)}
+                    style={{ cursor: onCameraClick ? 'pointer' : 'default' }}
+                  />
+                  {/* Main camera dot */}
+                  <circle
+                    cx={position.x}
+                    cy={position.y}
+                    r="8"
+                    fill={color}
+                    className="camera-dot"
+                    style={{ 
+                      '--camera-color': color,
+                      cursor: onCameraClick ? 'pointer' : 'default'
+                    } as React.CSSProperties}
+                    onClick={() => onCameraClick?.(camera.SegmentID)}
+                  />
+                  {/* Label */}
                   <text
                     x={position.x}
-                    y={position.y + 35}
+                    y={position.y - 20}
                     textAnchor="middle"
-                    className="camera-debug"
-                    fill="#666"
-                    fontSize="10"
+                    className="camera-label"
+                    fill={color}
                   >
-                    ({x.toFixed(2)}, {y.toFixed(2)})
+                    Camera {camera.SegmentID}
                   </text>
-                )}
-              </g>
-            );
-          })}
+                  {/* Debug: show coordinates */}
+                  {process.env.NODE_ENV === 'development' && (
+                    <text
+                      x={position.x}
+                      y={position.y + 35}
+                      textAnchor="middle"
+                      className="camera-debug"
+                      fill="#666"
+                      fontSize="10"
+                    >
+                      ({x.toFixed(2)}, {y.toFixed(2)})
+                    </text>
+                  )}
+                </g>
+              );
+            })
+          ) : (
+            // Saved view: show red dots for each saved capture
+            savedCaptures.map((capture) => {
+              // Get the first camera's position from the capture (or use average if multiple)
+              const firstCamera = capture.cameras[0];
+              if (!firstCamera) return null;
+              
+              const [x, y] = firstCamera.Position;
+              const position = coordToPixel(x, y, mapDimensions.width, mapDimensions.height);
+              
+              return (
+                <g key={capture.id}>
+                  {/* Red dot for saved capture */}
+                  <circle
+                    cx={position.x}
+                    cy={position.y}
+                    r="10"
+                    fill="#FF0000"
+                    stroke="#FFFFFF"
+                    strokeWidth="2"
+                    className="saved-capture-dot"
+                    onClick={() => onSavedCaptureClick?.(capture)}
+                    style={{ cursor: onSavedCaptureClick ? 'pointer' : 'default' }}
+                  />
+                  {/* Label with timestamp */}
+                  <text
+                    x={position.x}
+                    y={position.y - 15}
+                    textAnchor="middle"
+                    className="saved-capture-label"
+                    fill="#FF0000"
+                    fontSize="12"
+                    fontWeight="bold"
+                  >
+                    {new Date(capture.timestamp).toLocaleTimeString()}
+                  </text>
+                </g>
+              );
+            })
+          )}
         </svg>
       </div>
     </div>
   );
 }
-
