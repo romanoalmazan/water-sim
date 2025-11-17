@@ -5,7 +5,7 @@ const server: express.Express = express();
 // CORS middleware to allow requests from frontend (must come before body parser)
 server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   if (req.method === "OPTIONS") {
     res.sendStatus(200);
@@ -54,13 +54,27 @@ server.get("/api/screenshots", async (req, res) => {
   }
 });
 
+server.delete("/api/screenshots", async (req, res) => {
+  try {
+    let edge = await import("./screenshots");
+    edge.clearAllScreenshots(req, res);
+  } catch (error) {
+    console.error("[Server] Error loading screenshots module:", error);
+    res.status(500).json({ 
+      error: "Failed to load screenshots module", 
+      details: error instanceof Error ? error.message : String(error) 
+    });
+  }
+});
+
 server.listen(3001, () => {
   console.log("=".repeat(60));
   console.log("Screenshot API Server Ready on http://localhost:3001");
   console.log("=".repeat(60));
   console.log("Available API endpoints:");
-  console.log("  POST /api/screenshots - Save screenshot");
-  console.log("  GET  /api/screenshots - Get all screenshots");
+  console.log("  POST   /api/screenshots - Save screenshot");
+  console.log("  GET    /api/screenshots - Get all screenshots");
+  console.log("  DELETE /api/screenshots - Clear all screenshots");
   console.log("=".repeat(60));
   console.log("Screenshot database file: screenshot-api/screenshots.json");
   console.log("=".repeat(60));
