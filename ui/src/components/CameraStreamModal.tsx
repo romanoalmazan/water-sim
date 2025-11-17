@@ -4,6 +4,7 @@ import { ScreenshotPayload, ScreenshotData } from '../types/screenshot'
 import type { Camera } from '../types/camera'
 import type { PipeSegment as PipeSegmentType } from '../types/pipeData'
 import { calculateStatus } from '../utils/statusCalculator'
+import { saveScreenshot } from '../services/screenshotApi'
 import html2canvas from 'html2canvas'
 
 interface CameraStreamModalProps {
@@ -11,9 +12,10 @@ interface CameraStreamModalProps {
   onClose: () => void
   cameras: Camera[] // Use the same cameras data from App.tsx
   screenshotData?: ScreenshotData // If provided, show static image instead of live feed
+  onScreenshotSaved?: () => void // Callback when screenshot is saved
 }
 
-const CameraStreamModal = ({ robotId, onClose, cameras, screenshotData }: CameraStreamModalProps) => {
+const CameraStreamModal = ({ robotId, onClose, cameras, screenshotData, onScreenshotSaved }: CameraStreamModalProps) => {
   // Convert Camera[] to PipeSegment[] format
   const currentSegments: PipeSegmentType[] = cameras.map((cam: Camera) => ({
     SegmentID: cam.SegmentID,
@@ -27,13 +29,17 @@ const CameraStreamModal = ({ robotId, onClose, cameras, screenshotData }: Camera
   
   const isStaticMode = !!screenshotData
   const currentSegment = screenshotData 
-    ? screenshotData.segmentData 
+    ? {
+        SegmentID: screenshotData.robotId,
+        Water: screenshotData.water,
+        Light: screenshotData.light
+      }
     : (currentSegments.find(s => s.SegmentID === robotId) || currentSegments[0])
   
   // Find the matching camera to get Position data (for live feed mode)
-  // For static mode, we don't have position in screenshotData, so use cameras array
+  // For static mode, use position from screenshotData
   const currentCamera = cameras.find(cam => cam.SegmentID === robotId) || cameras[0]
-  const position = currentCamera ? currentCamera.Position : [0, 0]
+  const position = screenshotData ? screenshotData.position : (currentCamera ? currentCamera.Position : [0, 0])
 
   // Animate sin wave sliding effect using requestAnimationFrame (only for live feed)
   useEffect(() => {
@@ -112,39 +118,25 @@ const CameraStreamModal = ({ robotId, onClose, cameras, screenshotData }: Camera
       
       const imageData = canvas.toDataURL('image/png')
 
-      // Prepare payload with all data
+      // Save to backend database
       const payload: ScreenshotPayload = {
         robotId,
         image: imageData,
-        segmentData: currentSegment
+        segmentData: currentSegment,
+        position: position
       }
 
-      // Send to backend
-      const response = await fetch('http://localhost:3001/api/screenshots', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-
-      if (response.ok) {
-        await response.json()
-        alert('Screenshot captured and saved!')
-      } else {
-        const errorText = await response.text()
-        console.error('Server error:', errorText)
-        alert(`Failed to save screenshot: ${response.status} ${response.statusText}`)
-      }
+      await saveScreenshot(payload)
+      
+      // Notify parent to refresh database
+      onScreenshotSaved?.()
+      
+      // Show success message
+      alert('Screenshot captured and saved to database!')
     } catch (error) {
       console.error('Error capturing screenshot:', error)
       if (error instanceof Error) {
-        // Check if it's a network error (server not running)
-        if (error.message.includes('fetch') || error.message.includes('Failed to fetch')) {
-          alert('Error: Backend server not running. Please start it with "npm run server"')
-        } else {
-          alert(`Error capturing screenshot: ${error.message}. Check console for details.`)
-        }
+        alert(`Error capturing screenshot: ${error.message}. Check console for details.`)
       } else {
         alert('Error capturing screenshot. Check console for details.')
       }
@@ -290,18 +282,21 @@ const CameraStreamModal = ({ robotId, onClose, cameras, screenshotData }: Camera
             overflow: 'auto'
           }}
         >
-          {isStaticMode && screenshotData ? (
-            // Static image mode - show PNG
-            <img
-              src={screenshotData.image}
-              alt="Screenshot"
-              style={{
-                maxWidth: '100%',
-                maxHeight: '100%',
-                objectFit: 'contain'
-              }}
-            />
-          ) : (
+            {isStaticMode && screenshotData ? (
+              // Static image mode - show PNG from database
+              <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <img
+                  src={screenshotData.image}
+                  alt="Historical Screenshot"
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    objectFit: 'contain',
+                    borderRadius: '8px'
+                  }}
+                />
+              </div>
+            ) : (
             // Live feed mode - show animated pipe
             currentSegment && (
               <PipeSegment

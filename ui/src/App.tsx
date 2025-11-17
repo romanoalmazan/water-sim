@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { CameraCard } from './components/CameraCard';
 import { MapView } from './components/MapView';
 import CameraStreamModal from './components/CameraStreamModal';
+import { ScreenshotDatabase } from './components/ScreenshotDatabase';
 import { fetchCameraData } from './services/api';
 import type { Camera } from './types/camera';
+import type { ScreenshotData } from './types/screenshot';
 import './App.css';
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   const [selectedCameraId, setSelectedCameraId] = useState<number | null>(null);
+  const [selectedScreenshot, setSelectedScreenshot] = useState<ScreenshotData | null>(null);
+  const [refreshDatabase, setRefreshDatabase] = useState(0);
 
   useEffect(() => {
     const loadData = async () => {
@@ -99,12 +103,35 @@ function App() {
         ))}
       </div>
 
-      {/* Camera Stream Modal */}
-      {selectedCameraId !== null && (
+      {/* Screenshot Database */}
+      <ScreenshotDatabase
+        key={refreshDatabase}
+        onViewScreenshot={(screenshot) => {
+          setSelectedScreenshot(screenshot);
+          setSelectedCameraId(screenshot.robotId);
+        }}
+      />
+
+      {/* Camera Stream Modal - Live Feed */}
+      {selectedCameraId !== null && !selectedScreenshot && (
         <CameraStreamModal
           robotId={selectedCameraId}
           cameras={cameras}
           onClose={() => setSelectedCameraId(null)}
+          onScreenshotSaved={() => setRefreshDatabase(prev => prev + 1)}
+        />
+      )}
+
+      {/* Camera Stream Modal - Historical Screenshot */}
+      {selectedScreenshot && (
+        <CameraStreamModal
+          robotId={selectedScreenshot.robotId}
+          cameras={cameras}
+          screenshotData={selectedScreenshot}
+          onClose={() => {
+            setSelectedScreenshot(null);
+            setSelectedCameraId(null);
+          }}
         />
       )}
     </div>
