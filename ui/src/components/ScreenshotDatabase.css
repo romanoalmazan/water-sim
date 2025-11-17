@@ -6,12 +6,45 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.screenshot-database h2 {
-  margin: 0 0 20px 0;
-  color: #333;
-  font-size: 24px;
+.screenshot-database-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
   border-bottom: 2px solid #1976d2;
   padding-bottom: 10px;
+}
+
+.screenshot-database h2 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.clear-button {
+  padding: 8px 16px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.clear-button:hover:not(:disabled) {
+  background-color: #c62828;
+}
+
+.clear-button:active:not(:disabled) {
+  background-color: #b71c1c;
+}
+
+.clear-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .screenshot-database .loading,

@@ -151,3 +151,25 @@ export function getScreenshots(req: any, res: any): void {
   }
 }
 
+export function clearAllScreenshots(req: any, res: any): void {
+  try {
+    console.log(`[Screenshots] Clearing all screenshots - deleting file: ${SCREENSHOTS_FILE}`);
+    
+    // Delete the screenshots.json file if it exists
+    if (fs.existsSync(SCREENSHOTS_FILE)) {
+      fs.unlinkSync(SCREENSHOTS_FILE);
+      console.log(`[Screenshots] Successfully deleted screenshots file`);
+    } else {
+      console.log(`[Screenshots] Screenshots file does not exist, nothing to delete`);
+    }
+    
+    res.json({ success: true, message: "All screenshots cleared" });
+  } catch (error) {
+    console.error("[Screenshots] Error clearing screenshots:", error);
+    res.status(500).json({
+      error: "Failed to clear screenshots",
+      details: error instanceof Error ? error.message : String(error),
+    });
+  }
+}
+

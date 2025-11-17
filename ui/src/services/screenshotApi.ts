@@ -38,3 +38,20 @@ export async function getScreenshots(): Promise<ScreenshotData[]> {
   }
 }
 
+export async function clearAllScreenshots(): Promise<{ success: boolean; message: string }> {
+  try {
+    const response = await fetch(API_BASE_URL, {
+      method: 'DELETE',
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error clearing screenshots:', error);
+    throw error;
+  }
+}
+

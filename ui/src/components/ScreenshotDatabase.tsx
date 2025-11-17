@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getScreenshots } from '../services/screenshotApi';
+import { getScreenshots, clearAllScreenshots } from '../services/screenshotApi';
 import type { ScreenshotData } from '../types/screenshot';
 import './ScreenshotDatabase.css';
 
@@ -11,6 +11,7 @@ export function ScreenshotDatabase({ onViewScreenshot }: ScreenshotDatabaseProps
   const [screenshots, setScreenshots] = useState<ScreenshotData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isClearing, setIsClearing] = useState(false);
 
   const loadScreenshots = async () => {
     try {
@@ -39,6 +40,33 @@ export function ScreenshotDatabase({ onViewScreenshot }: ScreenshotDatabaseProps
     return date.toLocaleString();
   };
 
+  const handleClearAll = async () => {
+    if (screenshots.length === 0) {
+      return;
+    }
+
+    const confirmed = window.confirm(
+      `Are you sure you want to delete all ${screenshots.length} screenshot(s)? This action cannot be undone.`
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    setIsClearing(true);
+    try {
+      setError(null);
+      await clearAllScreenshots();
+      // Reload screenshots to show empty state
+      await loadScreenshots();
+    } catch (err) {
+      console.error('Error clearing screenshots:', err);
+      setError(err instanceof Error ? err.message : 'Failed to clear screenshots');
+    } finally {
+      setIsClearing(false);
+    }
+  };
+
   if (loading && screenshots.length === 0) {
     return (
       <div className="screenshot-database">
@@ -50,7 +78,18 @@ export function ScreenshotDatabase({ onViewScreenshot }: ScreenshotDatabaseProps
 
   return (
     <div className="screenshot-database">
-      <h2>Screenshot Database</h2>
+      <div className="screenshot-database-header">
+        <h2>Screenshot Database</h2>
+        {screenshots.length > 0 && (
+          <button
+            className="clear-button"
+            onClick={handleClearAll}
+            disabled={isClearing}
+          >
+            {isClearing ? 'Clearing...' : 'Clear All'}
+          </button>
+        )}
+      </div>
       
       {error && (
         <div className="error">Error: {error}</div>
