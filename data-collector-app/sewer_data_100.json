@@ -1,0 +1,4 @@
+{
+  "timestamp": "2025-11-17T00:32:12.127Z",
+  "cameras": "[{\"Position\":[0,0.20230000093579292],\"SegmentID\":0,\"Water\":0.5,\"Light\":1.0400771007900889,\"Status\":\"OK\"},{\"Position\":[1.339612508136942,2],\"SegmentID\":1,\"Water\":0.5,\"Light\":0.7432145675026058,\"Status\":\"LOWLIGHT\"},{\"Position\":[3,1.8417631002111978],\"SegmentID\":2,\"Water\":0.25,\"Light\":0.9276416120879801,\"Status\":\"OK\"}]"
+}
