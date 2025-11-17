@@ -4,15 +4,20 @@ import { MapView } from './components/MapView';
 import CameraStreamModal from './components/CameraStreamModal';
 import { ScreenshotDatabase } from './components/ScreenshotDatabase';
 import { fetchCameraData } from './services/api';
+import { getScreenshots } from './services/screenshotApi';
 import type { Camera } from './types/camera';
 import type { ScreenshotData } from './types/screenshot';
 import './App.css';
 
+type ViewMode = 'live' | 'saved';
+
 function App() {
   const [cameras, setCameras] = useState<Camera[]>([]);
+  const [screenshots, setScreenshots] = useState<ScreenshotData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [viewMode, setViewMode] = useState<ViewMode>('live');
   const [selectedCameraId, setSelectedCameraId] = useState<number | null>(null);
   const [selectedScreenshot, setSelectedScreenshot] = useState<ScreenshotData | null>(null);
   const [refreshDatabase, setRefreshDatabase] = useState(0);
@@ -42,6 +47,27 @@ function App() {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const loadScreenshots = async () => {
+      if (viewMode === 'saved') {
+        try {
+          const data = await getScreenshots();
+          setScreenshots(data);
+        } catch (err) {
+          console.error('Error loading screenshots:', err);
+        }
+      }
+    };
+
+    loadScreenshots();
+    
+    // Refresh screenshots every 2 seconds when in saved mode
+    if (viewMode === 'saved') {
+      const interval = setInterval(loadScreenshots, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [viewMode, refreshDatabase]);
+
   return (
     <div className="app">
       <header className="app-header">
@@ -63,37 +89,45 @@ function App() {
         </div>
       )}
 
-      {/* Camera Control Buttons */}
-      <div className="camera-buttons">
+      {/* View Mode Toggle Buttons */}
+      <div className="view-mode-buttons">
         <button 
-          className="camera-button camera-0"
-          onClick={() => setSelectedCameraId(0)}
-          disabled={loading || cameras.length === 0}
+          className={`view-mode-button ${viewMode === 'live' ? 'active' : ''}`}
+          onClick={() => {
+            setViewMode('live');
+            setSelectedScreenshot(null);
+            setSelectedCameraId(null);
+          }}
         >
-          Camera 0
+          Live
         </button>
         <button 
-          className="camera-button camera-1"
-          onClick={() => setSelectedCameraId(1)}
-          disabled={loading || cameras.length === 0}
+          className={`view-mode-button ${viewMode === 'saved' ? 'active' : ''}`}
+          onClick={() => {
+            setViewMode('saved');
+            setSelectedCameraId(null);
+            setSelectedScreenshot(null);
+          }}
         >
-          Camera 1
-        </button>
-        <button 
-          className="camera-button camera-2"
-          onClick={() => setSelectedCameraId(2)}
-          disabled={loading || cameras.length === 0}
-        >
-          Camera 2
+          Saved
         </button>
       </div>
 
-      {cameras.length > 0 && (
+      {(viewMode === 'live' && cameras.length > 0) || (viewMode === 'saved') ? (
         <MapView 
-          cameras={cameras} 
-          onCameraClick={(segmentId) => setSelectedCameraId(segmentId)}
+          cameras={viewMode === 'live' ? cameras : []}
+          screenshots={viewMode === 'saved' ? screenshots : []}
+          viewMode={viewMode}
+          onCameraClick={(segmentId) => {
+            setSelectedCameraId(segmentId);
+            setSelectedScreenshot(null);
+          }}
+          onScreenshotClick={(screenshot) => {
+            setSelectedScreenshot(screenshot);
+            setSelectedCameraId(null);
+          }}
         />
-      )}
+      ) : null}
 
       <div className="camera-list">
         {cameras.map((camera) => (
@@ -107,6 +141,7 @@ function App() {
         onViewScreenshot={(screenshot) => {
           setSelectedScreenshot(screenshot);
           setSelectedCameraId(screenshot.robotId);
+          setViewMode('saved'); // Switch to saved view when viewing from database
         }}
       />
 
