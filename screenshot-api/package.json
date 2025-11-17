@@ -1,0 +1,21 @@
+{
+  "name": "screenshot-api",
+  "version": "1.0.0",
+  "description": "Screenshot capture and retrieval API server",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx index.ts",
+    "dev": "tsx index.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^5.0.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.2.2"
+  }
+}
+
