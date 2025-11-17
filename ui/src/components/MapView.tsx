@@ -90,11 +90,6 @@ export function MapView({ cameras, onCameraClick }: MapViewProps) {
             const position = coordToPixel(x, y, mapDimensions.width, mapDimensions.height);
             const color = CAMERA_COLORS[camera.SegmentID] || '#000000';
             
-            // Debug: log positions (remove in production)
-            if (process.env.NODE_ENV === 'development') {
-              console.log(`Camera ${camera.SegmentID}: coord (${x.toFixed(2)}, ${y.toFixed(2)}) -> pixel (${position.x.toFixed(0)}, ${position.y.toFixed(0)})`);
-            }
-            
             return (
               <g key={camera.SegmentID}>
                 {/* Outer pulsing circle */}
@@ -131,19 +126,6 @@ export function MapView({ cameras, onCameraClick }: MapViewProps) {
                 >
                   Camera {camera.SegmentID}
                 </text>
-                {/* Debug: show coordinates */}
-                {process.env.NODE_ENV === 'development' && (
-                  <text
-                    x={position.x}
-                    y={position.y + 35}
-                    textAnchor="middle"
-                    className="camera-debug"
-                    fill="#666"
-                    fontSize="10"
-                  >
-                    ({x.toFixed(2)}, {y.toFixed(2)})
-                  </text>
-                )}
               </g>
             );
           })}

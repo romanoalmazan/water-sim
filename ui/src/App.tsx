@@ -20,10 +20,8 @@ function App() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        console.log('Loading camera data...');
         setError(null);
         const data = await fetchCameraData();
-        console.log('Setting cameras:', data);
         setCameras(data);
         setLastUpdate(new Date());
         setLoading(false);
